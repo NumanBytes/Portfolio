@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "./ui/card"
+import { Badge } from "./ui/badge"
 
 export function SkillsSection() {
   const skillCategories = [
@@ -10,7 +10,7 @@ export function SkillsSection() {
     },
     {
       title: "UI/UX Libraries",
-      skills: ["Material UI", "Ant Design", "Tailwind CSS", "Bootstrap"],
+      skills: ["Material UI", "Ant Design", "Tailwind CSS", "Bootstrap", "Shadcn UI"],
       color: "bg-accent/10 text-accent border-accent/20",
     },
     {

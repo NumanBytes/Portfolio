@@ -3,10 +3,10 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
+import { Button } from "../components/ui/button"
+import { Input } from "../components/ui/input"
+import { Textarea } from "../components/ui/textarea"
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react"
 
 export function ContactSection() {
@@ -70,7 +70,7 @@ export function ContactSection() {
         <div className="text-center mb-16">
           <h2 className="font-inter font-bold text-3xl sm:text-4xl text-foreground mb-4">Get In Touch</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to collaborate on your next project? Let's discuss how we can work together to bring your ideas to
+            Ready to collaborate on your next project? Let&apos;s discuss how we can work together to bring your ideas to
             life.
           </p>
         </div>
@@ -79,9 +79,9 @@ export function ContactSection() {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="font-inter font-semibold text-2xl text-foreground mb-6">Let's Connect</h3>
+              <h3 className="font-inter font-semibold text-2xl text-foreground mb-6">Let&#39;s Connect</h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                I'm always interested in discussing new opportunities, innovative projects, and potential
+                I&#39;m always interested in discussing new opportunities, innovative projects, and potential
                 collaborations. Whether you have a project in mind or just want to connect, feel free to reach out!
               </p>
             </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "../components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 
 export function HeroSection() {
@@ -28,7 +28,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            I'm Numan Razzaq, a passionate frontend developer with expertise in React, TypeScript, and modern web
+            I&apos;m Numan Razzaq, a passionate frontend developer with expertise in React, TypeScript, and modern web
             technologies. I create interactive, user-centric applications that deliver exceptional digital experiences.
           </p>
 

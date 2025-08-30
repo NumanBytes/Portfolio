@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "../components/ui/card"
 import { MapPin, Calendar, GraduationCap } from "lucide-react"
 
 export function AboutSection() {
@@ -15,19 +15,19 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-foreground leading-relaxed">
-              I'm a dedicated Frontend Developer with over a year of experience building interactive web applications
+              I&apos;m a dedicated Frontend Developer with over a year of experience building interactive web applications
               using React, JavaScript, and TypeScript. My expertise lies in crafting responsive interfaces with Material
               UI and developing modular, maintainable components.
             </p>
 
             <p className="text-lg text-foreground leading-relaxed">
-              Currently working at CloudCard Inc., I've successfully engineered digital card widgets for banking
+              Currently working at CloudCard Inc., I&lsquo;ve successfully engineered digital card widgets for banking
               clients, enhanced user interfaces for major financial institutions like Yes Bank, and collaborated with
               cross-functional teams to deliver high-quality software solutions in agile environments.
             </p>
 
             <p className="text-lg text-foreground leading-relaxed">
-              I'm committed to continuous learning and staying updated with the latest technologies to deliver
+              I&apos;m committed to continuous learning and staying updated with the latest technologies to deliver
               user-centric solutions that enhance client satisfaction and drive business success.
             </p>
           </div>
