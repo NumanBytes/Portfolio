@@ -1,0 +1,36 @@
+# Serves the static export in /srv.
+#  - Behind Shortlist's Caddy (the normal case): SITE_ADDRESS is unset, so this listens on
+#    plain :80 inside the Docker network and the edge Caddy handles HTTPS.
+#  - On a server of its own: set SITE_ADDRESS=your.domain and publish 80/443; Caddy then
+#    gets and renews the Let's Encrypt certificate itself.
+{$SITE_ADDRESS::80} {
+	encode zstd gzip
+	root * /srv
+
+	# Hashed build files never change: cache them for a year.
+	@assets path /_next/static/*
+	header @assets Cache-Control "public, max-age=31536000, immutable"
+	# Pages are re-checked on every visit so a deploy shows up immediately.
+	@pages path / /index.html /404.html
+	header @pages Cache-Control "no-cache"
+	# Next writes the share image without an extension; tell browsers what it is.
+	@og path /opengraph-image
+	header @og Content-Type "image/png"
+
+	try_files {path} {path}/index.html {path}.html
+	file_server
+
+	handle_errors 404 {
+		rewrite * /404.html
+		file_server
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		X-Frame-Options "DENY"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		-Server
+	}
+}
