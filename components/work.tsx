@@ -9,7 +9,7 @@ export function Work() {
   return (
     <section id="work" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 md:py-32">
       <SectionHeading
-        index="02"
+        index="03"
         label="Selected work"
         title="Products I've designed, built and run."
         intro="Side projects I take all the way to production — architecture, code, infrastructure and the bill."

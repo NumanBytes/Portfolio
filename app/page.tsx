@@ -4,7 +4,10 @@ import { Nav } from "@/components/nav";
 import { site } from "@/lib/data";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
+import { Services } from "@/components/services";
 import { Work } from "@/components/work";
+import { Testimonials } from "@/components/testimonials";
+import { Faq } from "@/components/faq";
 import { ExperienceSection } from "@/components/experience";
 import { Skills } from "@/components/skills";
 import { Contact } from "@/components/contact";
@@ -29,9 +32,12 @@ export default function Home() {
       <main id="main">
         <Hero />
         <About />
+        <Services />
         <Work />
+        <Testimonials />
         <ExperienceSection />
         <Skills />
+        <Faq />
         <Contact />
       </main>
       <Footer />

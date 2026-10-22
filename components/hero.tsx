@@ -34,24 +34,24 @@ export function Hero() {
           className="enter mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-muted sm:text-xl"
           style={{ "--i": 2 } as React.CSSProperties}
         >
-          {site.role} at CloudCard, shipping banking portals and embeddable SDKs used by banks across the
-          US and India — React &amp; TypeScript up front, GraphQL and Node behind. On the side I build and run
-          AI products on AWS.
+          I&apos;m a full-stack engineer who has spent 3+ years building for clients and teams — today
+          shipping banking portals at CloudCard, and helping founders and businesses turn ideas into fast,
+          reliable web apps. You get clear communication, honest timelines and code you can be proud of.
         </p>
 
         <div className="enter mt-10 flex flex-wrap items-center gap-3" style={{ "--i": 3 } as React.CSSProperties}>
           <a
-            href="#work"
+            href="#contact"
             className="group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 font-medium text-accent-fg transition hover:brightness-110"
           >
-            See my work
+            Start a project
             <ArrowDownRight className="size-4 transition group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
           </a>
           <a
-            href="#contact"
+            href="#work"
             className="group inline-flex h-12 items-center gap-2 rounded-full border border-line-strong px-6 font-medium transition hover:border-fg/40 hover:bg-line"
           >
-            Get in touch
+            See my work
             <ArrowUpRight className="size-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
           <div className="ml-1 flex items-center gap-1">

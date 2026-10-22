@@ -5,7 +5,7 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 md:py-32">
       <SectionHeading
-        index="03"
+        index="04"
         label="Experience"
         title="Where I've been shipping."
         intro="Production fintech by day: portals, SDKs and the APIs behind them."

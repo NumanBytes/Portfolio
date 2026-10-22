@@ -21,10 +21,10 @@ export function CopyEmail() {
     <button
       type="button"
       onClick={copy}
-      className="inline-flex h-12 items-center gap-2 rounded-full border border-line-strong px-5 font-mono text-sm text-muted transition hover:border-accent hover:text-fg"
+      className="inline-flex h-12 max-w-full items-center gap-2 rounded-full border border-line-strong px-5 font-mono text-sm text-muted transition hover:border-accent hover:text-fg"
     >
       {copied ? <Check className="size-4 text-accent" /> : <Copy className="size-4" />}
-      <span aria-live="polite">{copied ? "Copied to clipboard" : site.email}</span>
+      <span aria-live="polite" className="truncate">{copied ? "Copied to clipboard" : site.email}</span>
     </button>
   );
 }

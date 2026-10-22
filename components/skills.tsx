@@ -6,7 +6,7 @@ export function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 md:py-32">
       <SectionHeading
-        index="04"
+        index="05"
         label="Toolkit"
         title="The stack I reach for."
         intro="Deep in React and TypeScript; comfortable across the API, database and server it all runs on."

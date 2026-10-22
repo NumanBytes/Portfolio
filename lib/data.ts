@@ -16,7 +16,7 @@ export const site = {
   email: "numaan.razaq@gmail.com",
   // Drop the latest resume PDF at public/Numan_Razzaq_Resume.pdf before building.
   resume: "/Numan_Razzaq_Resume.pdf",
-  availability: "Open to frontend & full-stack roles",
+  availability: "Taking on new projects & roles",
   socials: {
     github: "https://github.com/NumanBytes",
     linkedin: "https://linkedin.com/in/numan-razzaq",
@@ -24,7 +24,7 @@ export const site = {
 } as const;
 
 export const stats = [
-  { value: "2+", label: "years shipping production software" },
+  { value: "3+", label: "years building for clients & teams" },
   { value: "3", label: "live banking portals delivered" },
   { value: "65%", label: "max bundle size cut after React 18 upgrade" },
   { value: "5", label: "React apps upgraded & lazy-loaded" },
@@ -34,6 +34,7 @@ export const about = {
   paragraphs: [
     "I'm a software engineer at CloudCard Inc., where I build the web portals and embeddable SDKs that banks and their business partners use to move money: payment batches, transfers, fees, card controls and account management.",
     "I started on the frontend and still care most about what users touch — fast loads, clear states, accessible components. But I own features end to end now: writing GraphQL queries and mutations in our Ruby service, wiring them through Apollo Client, and shipping the screens in React or Angular.",
+    "Before CloudCard I freelanced, and I still think like one: I talk to the people paying for the work, translate what they need into something I can ship, and keep them in the loop until it's live. Clients get one person who designs the plan, writes the code and deploys it — no hand-offs, no surprises.",
     "Outside work I build my own products. Shortlist, an AI job-application platform, runs in production on AWS; Manzil, a developer growth platform, is in progress. Both are where I practise the backend, infrastructure and AI work I want to do more of.",
   ],
   principles: [
@@ -99,11 +100,15 @@ export const experience: Experience[] = [
     role: "Web Developer",
     period: "Jul 2023 — May 2024",
     location: "Remote",
-    summary: "Websites and web apps for small businesses and individual clients.",
+    summary: "Websites and web apps for small businesses and individual clients, from first call to launch.",
     highlights: [
       {
         area: "Client work",
         text: "Delivered responsive, accessible websites and web apps, and built REST APIs connecting them to their back ends.",
+      },
+      {
+        area: "End-to-end ownership",
+        text: "Scoped each project with the client, shared progress as it was built, and handled hosting and launch — so clients dealt with one person from idea to live site.",
       },
     ],
     stack: ["JavaScript", "React", "Node.js", "Express", "REST APIs"],
@@ -220,10 +225,105 @@ export const education = {
   period: "2019 — 2023",
 };
 
+export const services = [
+  {
+    icon: "rocket",
+    title: "MVPs & SaaS products",
+    body: "Turn an idea into a working product: auth, payments, dashboards and an API, deployed and ready for real users.",
+    tags: ["Next.js", "NestJS", "PostgreSQL"],
+  },
+  {
+    icon: "layout",
+    title: "Dashboards & admin portals",
+    body: "Internal tools and customer portals that make complex data simple — the kind of thing I build for banks every day.",
+    tags: ["React", "TypeScript", "GraphQL"],
+  },
+  {
+    icon: "sparkles",
+    title: "AI features that pay for themselves",
+    body: "Add Claude-powered search, summaries, matching or content generation — with guardrails that keep API costs predictable.",
+    tags: ["Claude API", "Prompt design"],
+  },
+  {
+    icon: "gauge",
+    title: "Speed-ups & modernisation",
+    body: "Slow or outdated React app? I upgrade, lazy-load and clean it up. I've cut production bundles by up to 65%.",
+    tags: ["React 18/19", "Performance"],
+  },
+  {
+    icon: "server",
+    title: "Deployment & hosting",
+    body: "Docker, AWS and HTTPS set up properly, with backups — so your app stays up and you stay in control of it.",
+    tags: ["AWS", "Docker", "CI/CD"],
+  },
+  {
+    icon: "globe",
+    title: "Websites that convert",
+    body: "Fast, accessible, SEO-friendly marketing sites and landing pages that look great on every screen.",
+    tags: ["Next.js", "Tailwind"],
+  },
+] as const;
+
+export const workProcess = [
+  {
+    title: "Intro call",
+    body: "A free 20–30 minute chat about your goals, users and deadline. You'll leave with honest advice, even if we don't work together.",
+  },
+  {
+    title: "Clear plan & quote",
+    body: "A written scope with milestones, timeline and a fixed price or estimate — no vague hourly surprises.",
+  },
+  {
+    title: "Build in the open",
+    body: "Regular demos and a live preview link, so you see progress as it happens and can steer early.",
+  },
+  {
+    title: "Launch & support",
+    body: "I deploy, hand over the code and docs, and stay around after launch for fixes and next steps.",
+  },
+];
+
+export const promises = [
+  "Replies within 24 hours",
+  "Works with US, UK & EU time zones",
+  "You own 100% of the code",
+  "Fixed-scope quotes",
+];
+
+// Kind words from people Numan has worked with. Add real quotes here and the
+// "What people say" section appears automatically; it stays hidden while empty.
+export const testimonials: { quote: string; name: string; role: string }[] = [];
+
+export const faqs = [
+  {
+    q: "Do you work with clients outside Pakistan?",
+    a: "Yes. I work remotely in English, overlap with US, UK and EU working hours, and communicate over email, Slack, WhatsApp or video calls — whatever suits you.",
+  },
+  {
+    q: "How do you price a project?",
+    a: "Most projects get a fixed price per milestone after the intro call, so you know the cost before work starts. Ongoing work can be billed monthly.",
+  },
+  {
+    q: "I only have an idea, not a design. Is that okay?",
+    a: "Absolutely. I'll help you shape the features and flows, use proven UI patterns, and get something in front of users quickly.",
+  },
+  {
+    q: "What happens after launch?",
+    a: "You get the full source code, deployment access and documentation. I offer a support period for fixes, and I'm happy to keep building with you.",
+  },
+  {
+    q: "Are you available for full-time roles too?",
+    a: "Yes — I'm open to full-time frontend and full-stack positions, remote or in Lahore, alongside selected freelance work.",
+  },
+];
+
+export const projectTypes = ["New product / MVP", "Web app or dashboard", "AI feature", "Fix or speed up an app", "Website", "Full-time role"];
+export const budgets = ["< $1k", "$1k – $5k", "$5k – $15k", "$15k+", "Not sure yet"];
+
 export const nav = [
   { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
   { href: "#work", label: "Work" },
   { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
