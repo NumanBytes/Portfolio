@@ -1,6 +1,6 @@
 import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
-import { site, stats } from "@/lib/data";
-import { GitHubIcon, LinkedInIcon } from "./icons";
+import { site, stats, whatsappLink } from "@/lib/data";
+import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from "./icons";
 import { LocalTime } from "./local-time";
 
 export function Hero() {
@@ -72,6 +72,15 @@ export function Hero() {
               className="grid size-12 place-items-center rounded-full text-muted transition hover:bg-line hover:text-fg"
             >
               <LinkedInIcon className="size-5" />
+            </a>
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="grid size-12 place-items-center rounded-full text-muted transition hover:bg-line hover:text-[#25D366]"
+            >
+              <WhatsAppIcon className="size-5" />
             </a>
           </div>
         </div>

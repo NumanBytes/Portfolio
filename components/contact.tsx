@@ -1,11 +1,12 @@
 import { Mail } from "lucide-react";
-import { site } from "@/lib/data";
+import { site, whatsappLink } from "@/lib/data";
 import { CopyEmail } from "./copy-email";
-import { GitHubIcon, LinkedInIcon } from "./icons";
+import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from "./icons";
 import { LocalTime } from "./local-time";
 import { ProjectForm } from "./project-form";
 
 const channels = [
+  { label: "WhatsApp", value: site.whatsappDisplay, href: whatsappLink(), Icon: WhatsAppIcon },
   { label: "Email", value: site.email, href: `mailto:${site.email}`, Icon: Mail },
   { label: "LinkedIn", value: "in/numan-razzaq", href: site.socials.linkedin, Icon: LinkedInIcon },
   { label: "GitHub", value: "NumanBytes", href: site.socials.github, Icon: GitHubIcon },
@@ -27,7 +28,7 @@ export function Contact() {
           Got an idea? Let&apos;s build it together.
         </h2>
         <p className="mt-6 max-w-xl text-pretty text-lg text-muted">
-          Tell me about your project, or just say hello — I reply to every message within a day. Hiring for a
+          Tell me about your project, or just say hello on WhatsApp — I reply to every message within a day. Hiring for a
           full-time role? I&apos;d love to hear about that too.
         </p>
 

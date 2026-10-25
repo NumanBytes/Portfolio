@@ -2,11 +2,12 @@
 
 import { Send } from "lucide-react";
 import { useState } from "react";
-import { budgets, projectTypes, site } from "@/lib/data";
+import { budgets, projectTypes, site, whatsappLink } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { WhatsAppIcon } from "./icons";
 
-// The site is static, so the form writes the email for the visitor and opens their
-// mail app with everything filled in. Nothing is stored or sent by the site itself.
+// The site is static, so the form writes the message for the visitor and opens their
+// mail app (or WhatsApp) with everything filled in. Nothing is stored or sent by the site itself.
 export function ProjectForm() {
   const [type, setType] = useState<string>(projectTypes[0]);
   const [budget, setBudget] = useState<string>("");
@@ -23,6 +24,11 @@ export function ProjectForm() {
       "\n",
     );
     const subject = `${type} — ${name}`;
+    const submitter = (e.nativeEvent as SubmitEvent).submitter;
+    if (submitter?.getAttribute("value") === "whatsapp") {
+      window.open(whatsappLink(body), "_blank", "noopener");
+      return;
+    }
     window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
@@ -59,12 +65,21 @@ export function ProjectForm() {
       <div className="flex flex-wrap items-center gap-4">
         <button
           type="submit"
+          value="email"
           className="group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 font-medium text-accent-fg transition hover:brightness-110"
         >
-          Send enquiry
+          Send by email
           <Send className="size-4 transition group-hover:translate-x-0.5" />
         </button>
-        <p className="text-xs text-subtle">Opens your email app with this filled in.</p>
+        <button
+          type="submit"
+          value="whatsapp"
+          className="inline-flex h-12 items-center gap-2 rounded-full border border-line-strong px-5 font-medium transition hover:border-[#25D366] hover:text-[#25D366]"
+        >
+          <WhatsAppIcon className="size-4" />
+          Send on WhatsApp
+        </button>
+        <p className="w-full text-xs text-subtle">Opens your email app or WhatsApp with this filled in.</p>
       </div>
     </form>
   );

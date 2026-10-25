@@ -58,6 +58,7 @@ const personJsonLd = {
   jobTitle: site.role,
   url: site.url,
   email: `mailto:${site.email}`,
+  telephone: `+${site.whatsapp}`,
   address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
   alumniOf: "University of the Punjab",
   worksFor: { "@type": "Organization", name: "CloudCard Inc." },

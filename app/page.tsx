@@ -12,6 +12,7 @@ import { ExperienceSection } from "@/components/experience";
 import { Skills } from "@/components/skills";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 // Until the resume PDF is copied into public/, point the Resume button at LinkedIn
 // instead of a 404.
@@ -41,6 +42,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }

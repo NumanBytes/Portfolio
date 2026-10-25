@@ -14,6 +14,9 @@ export const site = {
   location: "Lahore, Pakistan",
   timeZone: "Asia/Karachi",
   email: "numaan.razaq@gmail.com",
+  // International format without "+" or spaces, as wa.me expects.
+  whatsapp: "923164658135",
+  whatsappDisplay: "+92 316 4658135",
   // Drop the latest resume PDF at public/Numan_Razzaq_Resume.pdf before building.
   resume: "/Numan_Razzaq_Resume.pdf",
   availability: "Taking on new projects & roles",
@@ -279,7 +282,7 @@ export const workProcess = [
   },
   {
     title: "Launch & support",
-    body: "I deploy, hand over the code and docs, and stay around after launch for fixes and next steps.",
+    body: "I deploy, hand over the code and docs, and fix any bugs free for 1 month after launch. After that, I'm here on a maintenance plan if you want me.",
   },
 ];
 
@@ -288,6 +291,7 @@ export const promises = [
   "Works with US, UK & EU time zones",
   "You own 100% of the code",
   "Fixed-scope quotes",
+  "1 month of free support after launch",
 ];
 
 // Kind words from people Numan has worked with. Add real quotes here and the
@@ -297,7 +301,7 @@ export const testimonials: { quote: string; name: string; role: string }[] = [];
 export const faqs = [
   {
     q: "Do you work with clients outside Pakistan?",
-    a: "Yes. I work remotely in English, overlap with US, UK and EU working hours, and communicate over email, Slack, WhatsApp or video calls — whatever suits you.",
+    a: "Yes. I work remotely in English, overlap with US, UK and EU working hours, and communicate over WhatsApp, email, Slack or video calls — whatever suits you.",
   },
   {
     q: "How do you price a project?",
@@ -309,7 +313,11 @@ export const faqs = [
   },
   {
     q: "What happens after launch?",
-    a: "You get the full source code, deployment access and documentation. I offer a support period for fixes, and I'm happy to keep building with you.",
+    a: "You get the full source code, deployment access and documentation, plus 1 month of free support: any bug in what I built gets fixed at no cost.",
+  },
+  {
+    q: "What about support after the first month?",
+    a: "Happy to keep helping. Ongoing care (updates, monitoring, small fixes) is available as a monthly maintenance plan, and new features are quoted separately, just like the original project.",
   },
   {
     q: "Are you available for full-time roles too?",
@@ -327,3 +335,7 @@ export const nav = [
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
+
+export function whatsappLink(text = "Hi Numan, I found your portfolio and would like to talk about a project.") {
+  return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
+}
