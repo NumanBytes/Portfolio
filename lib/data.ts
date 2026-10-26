@@ -15,8 +15,8 @@ export const site = {
   timeZone: "Asia/Karachi",
   email: "numaan.razaq@gmail.com",
   // International format without "+" or spaces, as wa.me expects.
-  whatsapp: "923164658135",
-  whatsappDisplay: "+92 316 4658135",
+  whatsapp: "923260806324",
+  whatsappDisplay: "+92 326 0806324",
   // Drop the latest resume PDF at public/Numan_Razzaq_Resume.pdf before building.
   resume: "/Numan_Razzaq_Resume.pdf",
   availability: "Taking on new projects & roles",
