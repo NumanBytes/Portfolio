@@ -1,5 +1,5 @@
-import { GraduationCap, Sparkles } from "lucide-react";
-import { about, education } from "@/lib/data";
+import { Sparkles } from "lucide-react";
+import { about } from "@/lib/data";
 import { SectionHeading } from "./section-heading";
 
 export function About() {
@@ -29,16 +29,6 @@ export function About() {
             </ul>
           </div>
 
-          <div className="reveal flex items-start gap-4 rounded-2xl border border-line bg-elevated p-6">
-            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">
-              <GraduationCap className="size-5" />
-            </span>
-            <div>
-              <p className="font-medium">{education.degree}</p>
-              <p className="text-sm text-muted">{education.school}</p>
-              <p className="mt-1 font-mono text-xs text-subtle">{education.period}</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

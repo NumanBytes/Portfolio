@@ -1,7 +1,8 @@
 import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
-import { site, stats, whatsappLink } from "@/lib/data";
+import { heroLines, site, stats, whatsappLink } from "@/lib/data";
 import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from "./icons";
 import { LocalTime } from "./local-time";
+import { Typewriter } from "./typewriter";
 
 export function Hero() {
   return (
@@ -22,21 +23,23 @@ export function Hero() {
         </div>
 
         <h1
-          className="enter mt-8 text-balance text-[2.6rem] font-semibold leading-[1.02] tracking-tighter sm:text-6xl md:text-7xl"
+          className="enter mt-8 min-h-[2.1em] max-w-4xl text-[2.6rem] font-semibold leading-[1.05] tracking-tighter sm:min-h-[1.1em] sm:text-6xl md:text-7xl"
           style={{ "--i": 1 } as React.CSSProperties}
         >
-          <span className="text-muted">Hi, I&apos;m {site.name.split(" ")[0]}.</span>{" "}
-          I build software people trust with{" "}
-          <span className="bg-gradient-to-r from-accent to-fg bg-clip-text text-transparent">their money.</span>
+          {/* Screen readers and search engines get the whole headline at once. */}
+          <span className="sr-only">
+            Hi, my name is {site.name}. I&apos;m a {site.role.toLowerCase()} who builds SaaS and web apps.
+          </span>
+          <Typewriter lines={heroLines} />
         </h1>
 
         <p
           className="enter mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-muted sm:text-xl"
           style={{ "--i": 2 } as React.CSSProperties}
         >
-          I&apos;m a full-stack engineer who has spent 3+ years building for clients and teams — today
-          shipping banking portals at CloudCard, and helping founders and businesses turn ideas into fast,
-          reliable web apps. You get clear communication, honest timelines and code you can be proud of.
+          I design, build and ship web apps, dashboards, SaaS products and AI features — from first idea
+          to a fast, reliable product in production. You get clear communication, honest timelines and code
+          you can be proud of.
         </p>
 
         <div className="enter mt-10 flex flex-wrap items-center gap-3" style={{ "--i": 3 } as React.CSSProperties}>

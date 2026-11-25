@@ -9,8 +9,8 @@ export const site = {
   // NEXT_PUBLIC_SITE_URL when the domain changes.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://numan-razzaq.duckdns.org",
   description:
-    "Numan Razzaq is a software engineer in Lahore building production banking portals, " +
-    "SDKs and AI-powered products with React, TypeScript, Next.js, NestJS and GraphQL.",
+    "Numan Razzaq is a software engineer in Lahore who builds web apps, dashboards, SaaS " +
+    "products and AI features with React, TypeScript, Next.js and Node.js.",
   location: "Lahore, Pakistan",
   timeZone: "Asia/Karachi",
   email: "numaan.razaq@gmail.com",
@@ -26,19 +26,27 @@ export const site = {
   },
 } as const;
 
+// Lines the hero headline types out one after another, then loops.
+export const heroLines = [
+  "Hi, my name is Numan.",
+  "I'm a software engineer.",
+  "I build SaaS & web apps.",
+  "I turn ideas into products.",
+  "Let's build yours next.",
+];
+
 export const stats = [
-  { value: "3+", label: "years building for clients & teams" },
-  { value: "3", label: "live banking portals delivered" },
-  { value: "65%", label: "max bundle size cut after React 18 upgrade" },
-  { value: "5", label: "React apps upgraded & lazy-loaded" },
+  { value: "3+", label: "years of experience" },
+  { value: "10+", label: "apps & portals in production" },
+  { value: "24h", label: "reply time, every message" },
+  { value: "100%", label: "code ownership for clients" },
 ];
 
 export const about = {
   paragraphs: [
-    "I'm a software engineer at CloudCard Inc., where I build the web portals and embeddable SDKs that banks and their business partners use to move money: payment batches, transfers, fees, card controls and account management.",
-    "I started on the frontend and still care most about what users touch — fast loads, clear states, accessible components. But I own features end to end now: writing GraphQL queries and mutations in our Ruby service, wiring them through Apollo Client, and shipping the screens in React or Angular.",
-    "Before CloudCard I freelanced, and I still think like one: I talk to the people paying for the work, translate what they need into something I can ship, and keep them in the loop until it's live. Clients get one person who designs the plan, writes the code and deploys it — no hand-offs, no surprises.",
-    "Outside work I build my own products. Shortlist, an AI job-application platform, runs in production on AWS; Manzil, a developer growth platform, is in progress. Both are where I practise the backend, infrastructure and AI work I want to do more of.",
+    "I'm a software engineer who builds web apps people actually enjoy using — fast, clear and reliable. For more than three years I've shipped products for companies and clients, from first idea to live in production.",
+    "I started on the frontend and still care most about what users touch. But I work end to end: the API, the database, the screens and the server it all runs on.",
+    "I think like a freelancer: I listen to what you need, turn it into a clear plan, and keep you in the loop until it's live. You get one person who plans, builds and deploys — no hand-offs, no surprises.",
   ],
   principles: [
     {
@@ -61,7 +69,6 @@ export type Experience = {
   role: string;
   period: string;
   location: string;
-  summary: string;
   highlights: { area: string; text: string }[];
   stack: string[];
 };
@@ -71,39 +78,32 @@ export const experience: Experience[] = [
     company: "CloudCard Inc.",
     role: "Software Engineer",
     period: "May 2024 — Present",
-    location: "Lahore · Full-time",
-    summary:
-      "Fintech platform powering card and payment products for banks in the US and India.",
+    location: "Full-time",
     highlights: [
       {
-        area: "Banking portals",
-        text: "Delivered modules across 3 production web portals used by banks and their business partners, including a payment batch system (incoming/outgoing payments, transfers, fees) and account and fund management.",
+        area: "End to end",
+        text: "Build features from the API to the UI across several production web apps used every day.",
       },
       {
-        area: "Mobile banking SDK",
-        text: "Built card features for an embeddable web/mobile banking SDK — multiple cards, freeze/block, transfers, statements — plus an app that shows users their card details.",
+        area: "Speed & quality",
+        text: "Keep apps fast and maintainable: framework upgrades, lazy loading and cleaner code.",
       },
       {
-        area: "Full-stack delivery",
-        text: "Owned features from API to UI: GraphQL queries and mutations in the core Ruby service, integrated via Apollo Client, and new screens in Angular apps.",
+        area: "Teamwork",
+        text: "Work closely with product, design, QA and backend teams to ship on schedule.",
       },
       {
-        area: "Performance",
-        text: "Upgraded 5 React apps (web and mobile) to React 18 and introduced lazy loading, cutting production bundle sizes by up to 65%; resolved SonarQube issues to raise code quality.",
-      },
-      {
-        area: "AI-assisted delivery",
-        text: "Used AI coding agents (Cursor, Claude Code) to accelerate implementation, debugging and refactoring — delivering features ahead of estimates while reviewing every change.",
+        area: "AI-assisted",
+        text: "Use AI coding tools daily to deliver faster, while reviewing every change.",
       },
     ],
-    stack: ["React", "TypeScript", "Angular", "GraphQL", "Apollo Client", "Ruby", "Material UI", "SonarQube"],
+    stack: ["React", "TypeScript", "Angular", "GraphQL", "Node.js"],
   },
   {
     company: "Freelance",
     role: "Web Developer",
     period: "Jul 2023 — May 2024",
     location: "Remote",
-    summary: "Websites and web apps for small businesses and individual clients, from first call to launch.",
     highlights: [
       {
         area: "Client work",
@@ -222,12 +222,6 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Quality", items: ["Vitest", "SonarQube", "Git", "GitHub Actions", "Postman"] },
 ];
 
-export const education = {
-  degree: "BS Information Technology",
-  school: "University of the Punjab (PUCIT), Lahore",
-  period: "2019 — 2023",
-};
-
 export const services = [
   {
     icon: "rocket",
@@ -238,7 +232,7 @@ export const services = [
   {
     icon: "layout",
     title: "Dashboards & admin portals",
-    body: "Internal tools and customer portals that make complex data simple — the kind of thing I build for banks every day.",
+    body: "Internal tools and customer portals that make complex data simple — built for real teams and their customers.",
     tags: ["React", "TypeScript", "GraphQL"],
   },
   {
@@ -250,7 +244,7 @@ export const services = [
   {
     icon: "gauge",
     title: "Speed-ups & modernisation",
-    body: "Slow or outdated React app? I upgrade, lazy-load and clean it up. I've cut production bundles by up to 65%.",
+    body: "Slow or outdated React app? I upgrade, lazy-load and clean it up. Your users will feel the difference.",
     tags: ["React 18/19", "Performance"],
   },
   {

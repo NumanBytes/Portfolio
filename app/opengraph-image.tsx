@@ -48,7 +48,7 @@ export default function OpengraphImage() {
             {`${site.role} · React, TypeScript, Next.js, NestJS`}
           </div>
           <div style={{ fontSize: 30, color: "#a1a1aa", marginTop: 24 }}>
-            Banking portals, SDKs and AI products — Lahore, Pakistan
+            Web apps, SaaS products and AI features — Lahore, Pakistan
           </div>
         </div>
       </div>

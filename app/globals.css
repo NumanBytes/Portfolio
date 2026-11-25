@@ -170,3 +170,14 @@ body {
     background-position: 0 0;
   }
 }
+
+/* Blinking cursor after the typed hero headline. */
+.caret {
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}

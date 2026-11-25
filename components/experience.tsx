@@ -8,7 +8,7 @@ export function ExperienceSection() {
         index="04"
         label="Experience"
         title="Where I've been shipping."
-        intro="Production fintech by day: portals, SDKs and the APIs behind them."
+        intro="Building and shipping production software for companies and clients."
       />
 
       <ol className="relative space-y-16 border-l border-line pl-6 sm:pl-10">
@@ -25,9 +25,8 @@ export function ExperienceSection() {
               <p className="font-mono text-sm text-subtle">{job.period}</p>
             </div>
             <p className="mt-1 text-sm text-subtle">{job.location}</p>
-            <p className="mt-4 max-w-2xl text-muted">{job.summary}</p>
 
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {job.highlights.map((h, i) => (
                 <li
                   key={h.area}
