@@ -104,7 +104,7 @@ curl -sI https://numan-razzaq.duckdns.org | head -1  # HTTP/2 200
 
 ## Updating the site
 
-Edit `lib/data.ts` (all of the content lives there), push to `main`, then on the server:
+Edit `lib/data.ts` (all of the content lives there), push to `master`, then on the server:
 
 ```bash
 ~/portfolio/deploy/deploy.sh
