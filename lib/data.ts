@@ -17,7 +17,7 @@ export const site = {
   // International format without "+" or spaces, as wa.me expects.
   whatsapp: "923260806324",
   whatsappDisplay: "+92 326 0806324",
-  // Drop the latest resume PDF at public/Numan_Razzaq_Resume.pdf before building.
+  // The Resume button downloads this file; replace public/Numan_Razzaq_Resume.pdf to update it.
   resume: "/Numan_Razzaq_Resume.pdf",
   availability: "Taking on new projects & roles",
   socials: {
@@ -38,8 +38,8 @@ export const heroLines = [
 export const stats = [
   { value: "3+", label: "years of experience" },
   { value: "10+", label: "apps & portals in production" },
+  { value: "300K", label: "end users on apps I've built" },
   { value: "24h", label: "reply time, every message" },
-  { value: "100%", label: "code ownership for clients" },
 ];
 
 export const about = {
@@ -168,46 +168,54 @@ export const featuredProjects: Project[] = [
   },
 ];
 
-export const moreProjects: Project[] = [
-  {
-    slug: "auth-system",
-    name: "Full-stack authentication system",
-    kicker: "Security",
-    description:
-      "Registration with email verification, TOTP two-factor auth with QR setup, and secure password reset links.",
-    points: [],
-    stack: ["React", "TypeScript", "Express", "PostgreSQL", "JWT"],
-    links: [{ label: "Source", href: "https://github.com/NumanBytes/auth-system" }],
-  },
-  {
-    slug: "store-admin",
-    name: "Store admin dashboard",
-    kicker: "E-commerce",
-    description:
-      "Product, category, customer and order management with payment gateway integration and sales reporting.",
-    points: [],
-    stack: ["React", "Express", "MongoDB", "REST"],
-    links: [{ label: "Source", href: "https://github.com/muneeb787/store-admin-dashboard" }],
-  },
-  {
-    slug: "shopping-store",
-    name: "Shopping store app",
-    kicker: "E-commerce",
-    description: "Responsive storefront with filtering, cart, checkout, accounts and order history.",
-    points: [],
-    stack: ["React", "Node.js", "REST"],
-    links: [{ label: "Source", href: "https://github.com/NumanBytes/Ecommerce_Store_App" }],
-  },
-  {
-    slug: "fyp",
-    name: "E-commerce platform (final year project)",
-    kicker: "Full stack",
-    description: "Django back end with product inventory, auth and order processing behind a separate front end.",
-    points: [],
-    stack: ["Django", "Python", "SQL"],
-    links: [{ label: "Source", href: "https://github.com/NumanBytes/Project-code" }],
-  },
-];
+export type ClientProject = {
+  name: string;
+  audience: string;
+  description: string;
+  points: string[];
+  stack: string[];
+  // Sandbox demo link; the button only appears once this is filled in.
+  demo?: string;
+};
+
+// Production portals Numan builds at CloudCard, a card & payments platform.
+export const clientWork = {
+  intro: "A card & payments platform serving 3 large banks and about 300,000 end users, with thousands of transactions a day.",
+  projects: [
+    {
+      name: "Bank Portal",
+      audience: "For banks",
+      description: "The back office banks use to run their payments, accounts and funds.",
+      points: [
+        "Built the payment batch module: inward and outward payments, transfers and fee application.",
+        "Individual and business account management.",
+        "Shared state so every batch detail can be edited across nested screens.",
+      ],
+      stack: ["React", "TypeScript", "GraphQL", "Apollo Client"],
+    },
+    {
+      name: "Partner Portal",
+      audience: "For business partners",
+      description: "Where the banks' business partners manage their accounts, funds and payments.",
+      points: [
+        "Customer-facing features from the GraphQL API through to the UI.",
+        "Account and fund management screens.",
+      ],
+      stack: ["React", "TypeScript", "GraphQL", "Ruby"],
+    },
+    {
+      name: "Consumer Portal",
+      audience: "For cardholders",
+      description: "Everyday banking for end users: cards, transfers and statements.",
+      points: [
+        "Cardholder features: multiple cards, freeze and block, transfers and statements.",
+        "The same features shipped as an embeddable web and mobile card SDK.",
+        "A new card design for the digital card widget.",
+      ],
+      stack: ["React", "TypeScript", "Material UI"],
+    },
+  ] satisfies ClientProject[] as ClientProject[],
+};
 
 export const skills: { group: string; items: string[] }[] = [
   {

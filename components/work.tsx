@@ -1,5 +1,5 @@
 import { ArrowUpRight, ChevronRight } from "lucide-react";
-import { featuredProjects, moreProjects, site, type Project } from "@/lib/data";
+import { clientWork, featuredProjects, site, type Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { GitHubIcon } from "./icons";
 import { SectionHeading } from "./section-heading";
@@ -11,8 +11,8 @@ export function Work() {
       <SectionHeading
         index="03"
         label="Selected work"
-        title="Products I've designed, built and run."
-        intro="Side projects I take all the way to production — architecture, code, infrastructure and the bill."
+        title="Products I've built and shipped."
+        intro="My own products, taken all the way to production — and the platforms I build for clients, used by hundreds of thousands of people."
       />
 
       <div className="space-y-6">
@@ -21,29 +21,45 @@ export function Work() {
         ))}
       </div>
 
-      <div className="reveal mt-20">
-        <h3 className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-subtle">Earlier projects</h3>
-        <ul className="divide-y divide-line border-y border-line">
-          {moreProjects.map((p) => (
-            <li key={p.slug}>
-              <a
-                href={p.links[0].href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group grid gap-2 py-5 transition sm:grid-cols-[1fr_auto] sm:items-center sm:gap-8"
-              >
-                <div>
-                  <p className="flex items-center gap-2 font-medium transition group-hover:text-accent">
-                    {p.name}
-                    <ArrowUpRight className="size-4 opacity-0 transition group-hover:opacity-100" />
-                  </p>
-                  <p className="mt-1 text-sm text-muted">{p.description}</p>
-                </div>
-                <p className="font-mono text-xs text-subtle">{p.stack.join(" · ")}</p>
-              </a>
-            </li>
+      <div className="mt-24">
+        <div className="reveal mb-8 max-w-2xl">
+          <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">Client work at CloudCard</h3>
+          <p className="mt-3 text-muted">{clientWork.intro}</p>
+        </div>
+        <ul className="grid gap-4 lg:grid-cols-3">
+          {clientWork.projects.map((p) => (
+            <Spotlight
+              as="li"
+              key={p.name}
+              className="reveal flex flex-col rounded-2xl border border-line bg-elevated p-6 transition hover:border-line-strong"
+            >
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-subtle">{p.audience}</p>
+              <h4 className="mt-2 text-xl font-semibold tracking-tight">{p.name}</h4>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{p.description}</p>
+              <ul className="mt-5 flex-1 space-y-2.5">
+                {p.points.map((pt) => (
+                  <li key={pt} className="flex gap-3 text-sm leading-relaxed text-muted">
+                    <span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-accent" />
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 font-mono text-xs text-subtle">{p.stack.join(" · ")}</p>
+              {p.demo && (
+                <a
+                  href={p.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-5 inline-flex h-10 w-fit items-center gap-2 rounded-full bg-fg px-4 text-sm font-medium text-bg transition hover:opacity-85"
+                >
+                  View sandbox
+                  <ArrowUpRight className="size-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              )}
+            </Spotlight>
           ))}
         </ul>
+
         <a
           href={site.socials.github}
           target="_blank"

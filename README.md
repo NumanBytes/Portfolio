@@ -10,8 +10,8 @@ Personal portfolio of **Numan Razzaq**, Software Engineer (React, TypeScript, Ne
 ## Editing content
 
 All content lives in [`lib/data.ts`](lib/data.ts): bio, stats, experience, projects
-and skills. Put the current resume at `public/Numan_Razzaq_Resume.pdf` (the Resume
-button falls back to LinkedIn when the file is missing).
+and skills. The Resume button downloads `public/Numan_Razzaq_Resume.pdf`; replace that
+file to update it.
 
 ## Develop
 

@@ -37,12 +37,8 @@ cd ~/portfolio/deploy
 cp .env.example .env          # PORTFOLIO_ADDRESS=numan-razzaq.duckdns.org
 ```
 
-Add the resume PDF that the "Resume" button links to (otherwise the button links to
-LinkedIn instead). From your laptop:
-
-```bash
-scp Numan_Razzaq_Resume.pdf ubuntu@YOUR_SERVER_IP:~/portfolio/public/
-```
+The resume the "Resume" button downloads is in the repo at
+`public/Numan_Razzaq_Resume.pdf`; to change it, replace that file, push, and redeploy.
 
 ## 3. Teach Shortlist's Caddy about the portfolio
 

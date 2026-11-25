@@ -1,7 +1,4 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import { Nav } from "@/components/nav";
-import { site } from "@/lib/data";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Services } from "@/components/services";
@@ -14,12 +11,6 @@ import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
-// Until the resume PDF is copied into public/, point the Resume button at LinkedIn
-// instead of a 404.
-const resumeHref = existsSync(join(process.cwd(), "public", site.resume))
-  ? site.resume
-  : site.socials.linkedin;
-
 export default function Home() {
   return (
     <>
@@ -29,7 +20,7 @@ export default function Home() {
       >
         Skip to content
       </a>
-      <Nav resumeHref={resumeHref} />
+      <Nav />
       <main id="main">
         <Hero />
         <About />

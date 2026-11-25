@@ -6,7 +6,7 @@ import { nav, site } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
 
-export function Nav({ resumeHref }: { resumeHref: string }) {
+export function Nav() {
   const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -72,9 +72,8 @@ export function Nav({ resumeHref }: { resumeHref: string }) {
         <div className="flex items-center gap-1">
           <ThemeToggle />
           <a
-            href={resumeHref}
-            target="_blank"
-            rel="noopener"
+            href={site.resume}
+            download="Numan_Razzaq_Resume.pdf"
             className="ml-1 hidden h-9 items-center rounded-full bg-fg px-4 text-sm font-medium text-bg transition hover:opacity-85 sm:inline-flex"
           >
             Resume
@@ -98,10 +97,11 @@ export function Nav({ resumeHref }: { resumeHref: string }) {
           className="mx-auto mt-2 max-w-5xl rounded-3xl border border-line bg-bg p-3 shadow-2xl shadow-black/20 md:hidden"
         >
           <ul className="grid">
-            {[...nav, { href: resumeHref, label: "Resume" }].map((item) => (
+            {[...nav, { href: site.resume, label: "Download resume" }].map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
+                  download={item.href === site.resume ? "Numan_Razzaq_Resume.pdf" : undefined}
                   onClick={() => setOpen(false)}
                   className="block rounded-2xl px-4 py-3 text-lg text-muted transition hover:bg-line hover:text-fg"
                 >
