@@ -4,7 +4,6 @@
 export const site = {
   name: "Numan Razzaq",
   role: "Full-Stack Engineer",
-  tagline: "Full-stack engineer building SaaS products end to end.",
   // Used for canonical URLs, Open Graph and the sitemap. Override at build time with
   // NEXT_PUBLIC_SITE_URL when the domain changes.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://numan-razzaq.duckdns.org",
@@ -51,7 +50,7 @@ export const about = [
   "Day to day that's payments software for banks. On my own time, AI products like Shortlist.",
 ];
 
-export type Experience = {
+type Experience = {
   company: string;
   role: string;
   period: string;
@@ -133,7 +132,7 @@ export const featuredProjects: Project[] = [
   },
 ];
 
-export type ClientProject = {
+type ClientProject = {
   name: string;
   audience: string;
   description: string;
@@ -238,7 +237,7 @@ export const testimonials: { quote: string; name: string; role: string }[] = [];
 export const faqs = [
   {
     q: "Do you work with clients outside Pakistan?",
-    a: "Yes. Remotely, in English, with hours that overlap the US, UK and EU.",
+    a: "Yes. I work remotely, with hours that overlap the US, UK and EU.",
   },
   {
     q: "How do you price a project?",
@@ -265,16 +264,7 @@ export const nav = [
   { href: "#contact", label: "Contact" },
 ];
 
-export function whatsappLink(text = "Hi Numan, I found your portfolio and would like to talk about a project.") {
-  return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
-}
-
-// Where "Book a free call" goes: the booking page once set, WhatsApp until then.
-export function bookingLink() {
-  return site.booking || whatsappLink("Hi Numan, I'd like to book a free intro call about my project.");
-}
-
-export type CaseStudy = {
+type CaseStudy = {
   slug: string;
   name: string;
   tagline: string;

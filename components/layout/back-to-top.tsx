@@ -4,7 +4,7 @@ import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-// Appears once the hero has scrolled away, above the WhatsApp button.
+// Appears once the first screen has scrolled away, above the WhatsApp button.
 export function BackToTop() {
   const [visible, setVisible] = useState(false);
 
@@ -16,8 +16,9 @@ export function BackToTop() {
   }, []);
 
   return (
-    <a
-      href="#top"
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0 })}
       aria-label="Back to top"
       tabIndex={visible ? 0 : -1}
       className={cn(
@@ -26,6 +27,6 @@ export function BackToTop() {
       )}
     >
       <ArrowUp className="size-5" />
-    </a>
+    </button>
   );
 }

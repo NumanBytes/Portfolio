@@ -46,7 +46,8 @@
   background-attachment: fixed;
 }
 
-[data-theme="light"] .bg-elevated {
+[data-theme="light"] .bg-elevated,
+[data-theme="light"] .card {
   box-shadow: var(--card-shadow);
 }
 
@@ -63,6 +64,16 @@
   --color-accent-soft: var(--accent-soft);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* The standard bordered panel used for cards across the site. */
+@utility card {
+  border: 1px solid var(--line);
+  background-color: var(--bg-elevated);
+  transition: border-color 150ms;
+  &:hover {
+    border-color: var(--line-strong);
+  }
 }
 
 html {

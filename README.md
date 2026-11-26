@@ -21,6 +21,22 @@ In `lib/data.ts`, under `site`:
   "Book a free call" button uses it; while empty they open WhatsApp instead.
 - `umamiWebsiteId`: the Website ID from cloud.umami.is to turn on cookie-free analytics.
 
+## Structure
+
+```
+app/                     routes: home page, /work/[slug] case studies, SEO files
+components/
+  sections/              one file per home-page section (hero, work, services, …)
+  layout/                nav, footer and the floating buttons
+  ui/                    small shared pieces: Section, buttons/links, lists, accordion, icons
+  effects/               visual effects: pointer background, card glow, typewriter
+lib/
+  data.ts                all site content
+  links.ts               WhatsApp and booking links
+  utils.ts               cn() class-name helper
+deploy/                  Docker Compose, Caddy config and deploy guide for EC2
+```
+
 ## Develop
 
 ```bash

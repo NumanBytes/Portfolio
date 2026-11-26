@@ -2,13 +2,18 @@
 
 import { Send } from "lucide-react";
 import { useState } from "react";
-import { budgets, projectTypes, site, whatsappLink } from "@/lib/data";
+import { budgets, projectTypes, site } from "@/lib/data";
+import { whatsappLink } from "@/lib/links";
 import { cn } from "@/lib/utils";
-import { WhatsAppIcon } from "./icons";
+import { WhatsAppIcon } from "@/components/ui/icons";
+import { button } from "@/components/ui/link";
+
+const inputClass =
+  "w-full rounded-xl border border-line-strong bg-bg px-4 text-sm outline-none transition placeholder:text-subtle focus:border-accent";
 
 // The site is static, so the form writes the message for the visitor and opens their
 // mail app (or WhatsApp) with everything filled in. Nothing is stored or sent by the site itself.
-export function ProjectForm() {
+export function ContactForm() {
   const [type, setType] = useState<string>(projectTypes[0]);
   const [budget, setBudget] = useState<string>("");
 
@@ -20,9 +25,8 @@ export function ProjectForm() {
     const details = [`Looking for: ${type}`];
     if (budget) details.push(`Budget: ${budget}`);
     if (timeline) details.push(`Timeline: ${timeline}`);
-    const body = ["Hi Numan,", "", String(data.get("message") ?? "").trim(), "", `— ${name}`, "", ...details].join(
-      "\n",
-    );
+    const message = String(data.get("message") ?? "").trim();
+    const body = ["Hi Numan,", "", message, "", `— ${name}`, "", ...details].join("\n");
     const subject = `${type} — ${name}`;
     const submitter = (e.nativeEvent as SubmitEvent).submitter;
     if (submitter?.getAttribute("value") === "whatsapp") {
@@ -58,7 +62,7 @@ export function ProjectForm() {
           required
           rows={4}
           placeholder="What are you building, who is it for, and what does success look like?"
-          className="w-full resize-y rounded-xl border border-line-strong bg-bg px-4 py-3 text-sm outline-none transition placeholder:text-subtle focus:border-accent"
+          className={cn(inputClass, "resize-y py-3")}
         />
       </label>
 
@@ -67,7 +71,7 @@ export function ProjectForm() {
           type="submit"
           value="email"
           data-umami-event="enquiry:email"
-          className="group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 font-medium text-accent-fg transition hover:brightness-110"
+          className={button("accent", "lg")}
         >
           Send by email
           <Send className="size-4 transition group-hover:translate-x-0.5" />
@@ -76,7 +80,7 @@ export function ProjectForm() {
           type="submit"
           value="whatsapp"
           data-umami-event="enquiry:whatsapp"
-          className="inline-flex h-12 items-center gap-2 rounded-full border border-line-strong px-5 font-medium transition hover:border-[#25D366] hover:text-[#25D366]"
+          className={cn(button("outline", "lg"), "hover:border-[#25D366] hover:bg-transparent hover:text-[#25D366]")}
         >
           <WhatsAppIcon className="size-4" />
           Send on WhatsApp
@@ -93,7 +97,7 @@ function Field({ label, ...props }: { label: string } & React.InputHTMLAttribute
       <span className="mb-2 block text-sm text-muted">{label}</span>
       <input
         {...props}
-        className="h-11 w-full rounded-xl border border-line-strong bg-bg px-4 text-sm outline-none transition placeholder:text-subtle focus:border-accent"
+        className={cn(inputClass, "h-11")}
       />
     </label>
   );

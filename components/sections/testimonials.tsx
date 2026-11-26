@@ -1,24 +1,24 @@
 import { Quote } from "lucide-react";
 import { testimonials } from "@/lib/data";
-import { SectionHeading } from "./section-heading";
+import { Section, SectionHeading } from "@/components/ui/section";
 
 // Hidden until real quotes are added to lib/data.ts.
 export function Testimonials() {
   if (testimonials.length === 0) return null;
 
   return (
-    <section id="testimonials" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
-      <SectionHeading index="" label="Kind words" title="What people say." />
+    <Section id="testimonials">
+      <SectionHeading label="Kind words" title="What people say." />
       <ul className="grid gap-4 md:grid-cols-2">
         {testimonials.map((t) => (
-          <li key={t.name} className="spotlight reveal rounded-2xl border border-line bg-elevated p-6">
+          <li key={t.name} className="spotlight card reveal rounded-2xl p-6">
             <Quote className="size-5 text-accent" />
-            <blockquote className="mt-4 text-pretty leading-relaxed">{t.quote}</blockquote>
+            <blockquote className="mt-4 leading-relaxed text-pretty">{t.quote}</blockquote>
             <p className="mt-5 text-sm font-medium">{t.name}</p>
             <p className="text-sm text-subtle">{t.role}</p>
           </li>
         ))}
       </ul>
-    </section>
+    </Section>
   );
 }

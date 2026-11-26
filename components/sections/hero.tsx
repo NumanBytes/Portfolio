@@ -1,7 +1,9 @@
 import { ArrowDownRight, CalendarDays, MapPin } from "lucide-react";
-import { bookingLink, heroLines, site, stats } from "@/lib/data";
-import { LocalTime } from "./local-time";
-import { Typewriter } from "./typewriter";
+import { heroLines, site, stats } from "@/lib/data";
+import { bookingUrl } from "@/lib/links";
+import { Typewriter } from "@/components/effects/typewriter";
+import { ExternalLink, button } from "@/components/ui/link";
+import { LocalTime } from "@/components/ui/local-time";
 
 export function Hero() {
   return (
@@ -9,7 +11,7 @@ export function Hero() {
       <div aria-hidden className="glow absolute -top-40 left-1/2 -z-10 h-[36rem] w-[60rem] -translate-x-1/2" />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="enter flex flex-wrap items-center gap-x-5 gap-y-3 font-mono text-xs text-muted" style={{ "--i": 0 } as React.CSSProperties}>
+        <div className="enter flex flex-wrap items-center gap-x-5 gap-y-3 font-mono text-xs text-muted [--i:0]">
           <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent-soft px-3 py-1.5 text-accent">
             <span className="pulse-dot relative size-1.5 rounded-full bg-accent" />
             {site.availability}
@@ -20,10 +22,7 @@ export function Hero() {
           </span>
         </div>
 
-        <h1
-          className="enter mt-8 min-h-[2.1em] max-w-4xl text-[2.6rem] font-semibold leading-[1.05] tracking-tighter sm:min-h-[1.1em] sm:text-6xl md:text-7xl"
-          style={{ "--i": 1 } as React.CSSProperties}
-        >
+        <h1 className="enter mt-8 min-h-[2.1em] max-w-4xl text-[2.6rem] leading-[1.05] font-semibold tracking-tighter [--i:1] sm:min-h-[1.1em] sm:text-6xl md:text-7xl">
           {/* Screen readers and search engines get the whole headline at once. */}
           <span className="sr-only">
             Hi, my name is {site.name}. I&apos;m a {site.role.toLowerCase()} who builds SaaS and web apps.
@@ -31,44 +30,28 @@ export function Hero() {
           <Typewriter lines={heroLines} />
         </h1>
 
-        <p
-          className="enter mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-muted sm:text-xl"
-          style={{ "--i": 2 } as React.CSSProperties}
-        >
+        <p className="enter mt-7 max-w-2xl text-lg leading-relaxed text-pretty text-muted [--i:2] sm:text-xl">
           Full-stack engineer building SaaS products and the systems behind them. Payments software used by
           300,000 people; AI products I run in production.
         </p>
 
-        <div className="enter mt-10 flex flex-wrap items-center gap-3" style={{ "--i": 3 } as React.CSSProperties}>
-          <a
-            href="#contact"
-            data-umami-event="hero:start-project"
-            className="group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 font-medium text-accent-fg transition hover:brightness-110"
-          >
+        <div className="enter mt-10 flex flex-wrap items-center gap-3 [--i:3]">
+          <a href="#contact" data-umami-event="hero:start-project" className={button("accent", "lg")}>
             Start a project
             <ArrowDownRight className="size-4 transition group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
           </a>
-          <a
-            href={bookingLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-umami-event="hero:book-call"
-            className="group inline-flex h-12 items-center gap-2 rounded-full border border-line-strong px-6 font-medium transition hover:border-fg/40 hover:bg-line"
-          >
+          <ExternalLink href={bookingUrl} data-umami-event="hero:book-call" className={button("outline", "lg")}>
             <CalendarDays className="size-4" />
             Book a free call
-          </a>
+          </ExternalLink>
         </div>
 
-        <dl
-          className="enter mt-14 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-line bg-line"
-          style={{ "--i": 4 } as React.CSSProperties}
-        >
+        <dl className="enter mt-14 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-line bg-line [--i:4]">
           {stats.map((s) => (
             <div key={s.label} className="spotlight flex flex-col-reverse justify-end gap-1 bg-bg p-4 sm:p-6">
               <dt className="text-sm text-muted">{s.label}</dt>
               <dd className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                {s.value.replace(/[^\d]/g, "")}
+                {s.value.replace(/\D/g, "")}
                 <span className="text-accent">{s.value.replace(/\d/g, "")}</span>
               </dd>
             </div>
