@@ -87,7 +87,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
         <dl className="enter mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4" style={{ "--i": 4 } as React.CSSProperties}>
           {study.metrics.map((m) => (
-            <div key={m.label} className="flex flex-col-reverse justify-end gap-1 bg-elevated p-5">
+            <div key={m.label} className="spotlight flex flex-col-reverse justify-end gap-1 bg-elevated p-5">
               <dt className="text-sm text-muted">{m.label}</dt>
               <dd className="text-2xl font-semibold tracking-tight text-accent sm:text-3xl">{m.value}</dd>
             </div>
@@ -120,7 +120,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           ))}
         </div>
 
-        <aside className="reveal mt-20 rounded-3xl border border-line bg-elevated p-8 sm:p-10">
+        <aside className="spotlight reveal mt-20 rounded-3xl border border-line bg-elevated p-8 sm:p-10">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Want something like this built?</h2>
           <p className="mt-3 text-muted">
             I take products from idea to production, end to end. Tell me what you&apos;re building.

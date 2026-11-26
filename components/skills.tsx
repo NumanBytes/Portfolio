@@ -1,6 +1,5 @@
 import { skills } from "@/lib/data";
 import { SectionHeading } from "./section-heading";
-import { Spotlight } from "./spotlight";
 
 export function Skills() {
   return (
@@ -14,11 +13,10 @@ export function Skills() {
 
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {skills.map((s, i) => (
-          <Spotlight
-            as="li"
+          <li
             key={s.group}
             className={
-              "reveal rounded-2xl border border-line bg-elevated p-6 transition hover:border-line-strong " +
+              "spotlight reveal rounded-2xl border border-line bg-elevated p-6 transition hover:border-line-strong " +
               (i === 0 || i === skills.length - 1 ? "lg:col-span-2" : "")
             }
           >
@@ -30,7 +28,7 @@ export function Skills() {
                 </li>
               ))}
             </ul>
-          </Spotlight>
+          </li>
         ))}
       </ul>
     </section>

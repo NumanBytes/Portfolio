@@ -13,6 +13,14 @@ All content lives in [`lib/data.ts`](lib/data.ts): bio, stats, experience, proje
 and skills. The Resume button downloads `public/Numan_Razzaq_Resume.pdf`; replace that
 file to update it.
 
+## Optional setup
+
+In `lib/data.ts`, under `site`:
+
+- `booking`: your Calendly link (e.g. `https://calendly.com/<you>/intro-call`). Every
+  "Book a free call" button uses it; while empty they open WhatsApp instead.
+- `umamiWebsiteId`: the Website ID from cloud.umami.is to turn on cookie-free analytics.
+
 ## Develop
 
 ```bash

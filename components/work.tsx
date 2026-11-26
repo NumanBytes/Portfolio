@@ -4,7 +4,6 @@ import { clientWork, featuredProjects, site, type Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { GitHubIcon } from "./icons";
 import { SectionHeading } from "./section-heading";
-import { Spotlight } from "./spotlight";
 
 export function Work() {
   return (
@@ -29,10 +28,9 @@ export function Work() {
         </div>
         <ul className="grid gap-4 lg:grid-cols-3">
           {clientWork.projects.map((p) => (
-            <Spotlight
-              as="li"
+            <li
               key={p.name}
-              className="reveal flex flex-col rounded-2xl border border-line bg-elevated p-6 transition hover:border-line-strong"
+              className="spotlight reveal flex flex-col rounded-2xl border border-line bg-elevated p-6 transition hover:border-line-strong"
             >
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-subtle">{p.audience}</p>
               <h4 className="mt-2 text-xl font-semibold tracking-tight">{p.name}</h4>
@@ -63,7 +61,7 @@ export function Work() {
                   </span>
                 </div>
               )}
-            </Spotlight>
+            </li>
           ))}
         </ul>
 
@@ -82,9 +80,8 @@ export function Work() {
 
 function FeaturedProject({ project: p, wide }: { project: Project; wide: boolean }) {
   return (
-    <Spotlight
-      as="article"
-      className="reveal overflow-hidden rounded-3xl border border-line bg-elevated transition hover:border-line-strong"
+    <article
+      className="spotlight reveal overflow-hidden rounded-3xl border border-line bg-elevated transition hover:border-line-strong"
     >
       <div className={cn("grid gap-10 p-6 sm:p-10", wide && "lg:grid-cols-[1.1fr_1fr]")}>
         <div>
@@ -165,7 +162,7 @@ function FeaturedProject({ project: p, wide }: { project: Project; wide: boolean
           </ul>
         </div>
       </div>
-    </Spotlight>
+    </article>
   );
 }
 

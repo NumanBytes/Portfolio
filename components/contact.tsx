@@ -14,7 +14,7 @@ const channels = [
 export function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
-      <div className="reveal relative isolate overflow-hidden rounded-[2rem] border border-line bg-elevated px-6 py-14 sm:px-12 md:py-20">
+      <div className="spotlight reveal relative isolate overflow-hidden rounded-[2rem] border border-line bg-elevated px-6 py-14 sm:px-12 md:py-20">
         <div aria-hidden className="glow absolute -right-40 -bottom-60 -z-10 size-[40rem]" />
         <div aria-hidden className="bg-grid absolute inset-0 -z-10 opacity-60" />
 
@@ -40,7 +40,7 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               data-umami-event="contact:book-call"
-              className="group flex items-center gap-4 rounded-2xl border border-accent/40 bg-accent-soft p-5 transition hover:border-accent"
+              className="spotlight group flex items-center gap-4 rounded-2xl border border-accent/40 bg-accent-soft p-5 transition hover:border-accent"
             >
               <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent text-accent-fg">
                 <CalendarDays className="size-5" />
@@ -51,7 +51,7 @@ export function Contact() {
               </span>
             </a>
 
-            <div className="rounded-2xl border border-line bg-bg p-5">
+            <div className="spotlight rounded-2xl border border-line bg-bg p-5">
               <p className="flex items-center gap-2 text-sm">
                 <span className="pulse-dot relative size-2 rounded-full bg-accent" />
                 {site.availability}
@@ -68,7 +68,7 @@ export function Contact() {
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="group flex items-center gap-4 bg-bg/40 p-4 transition hover:bg-bg"
+                    className="spotlight group flex items-center gap-4 bg-bg/40 p-4 transition hover:bg-bg"
                   >
                     <Icon className="size-5 text-muted transition group-hover:text-accent" />
                     <span className="min-w-0">

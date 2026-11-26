@@ -30,7 +30,7 @@ export function ExperienceSection() {
                 <li
                   key={h.area}
                   className={
-                    "rounded-2xl border border-line bg-elevated p-5 " +
+                    "spotlight rounded-2xl border border-line bg-elevated p-5 transition hover:border-line-strong " +
                     // An odd number of cards: let the last one span the full row.
                     (job.highlights.length % 2 === 1 && i === job.highlights.length - 1 ? "sm:col-span-2" : "")
                   }

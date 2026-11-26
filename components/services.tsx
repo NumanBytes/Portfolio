@@ -1,7 +1,6 @@
 import { ArrowUpRight, Check, Gauge, Globe, LayoutDashboard, Rocket, Server, Sparkles } from "lucide-react";
 import { bookingLink, promises, services, workProcess } from "@/lib/data";
 import { SectionHeading } from "./section-heading";
-import { Spotlight } from "./spotlight";
 
 const icons = {
   rocket: Rocket,
@@ -26,10 +25,9 @@ export function Services() {
         {services.map((s) => {
           const Icon = icons[s.icon];
           return (
-            <Spotlight
-              as="li"
+            <li
               key={s.title}
-              className="reveal flex flex-col rounded-2xl border border-line bg-elevated p-6 transition hover:border-line-strong"
+              className="spotlight reveal flex flex-col rounded-2xl border border-line bg-elevated p-6 transition hover:border-line-strong"
             >
               <span className="grid size-10 place-items-center rounded-xl bg-accent-soft text-accent">
                 <Icon className="size-5" />
@@ -37,7 +35,7 @@ export function Services() {
               <h3 className="mt-5 text-lg font-semibold tracking-tight">{s.title}</h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{s.body}</p>
               <p className="mt-5 font-mono text-xs text-subtle">{s.tags.join(" · ")}</p>
-            </Spotlight>
+            </li>
           );
         })}
       </ul>
@@ -51,7 +49,7 @@ export function Services() {
 
         <ol className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
           {workProcess.map((step, i) => (
-            <li key={step.title} className="bg-bg p-6">
+            <li key={step.title} className="spotlight bg-bg p-6">
               <span className="font-mono text-sm text-accent">0{i + 1}</span>
               <p className="mt-3 font-medium">{step.title}</p>
               <p className="mt-2 text-sm leading-relaxed text-muted">{step.body}</p>

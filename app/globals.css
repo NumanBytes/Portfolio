@@ -110,7 +110,7 @@ body {
   background: radial-gradient(closest-side, var(--glow), transparent);
 }
 
-/* Cards light up under the pointer; --x/--y are set by <Spotlight>. */
+/* Boxes with this class light up under the pointer; --x/--y are set by <SpotlightTracker>. */
 .spotlight {
   position: relative;
   isolation: isolate;

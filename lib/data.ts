@@ -20,8 +20,8 @@ export const site = {
   // The Resume button downloads this file; replace public/Numan_Razzaq_Resume.pdf to update it.
   resume: "/Numan_Razzaq_Resume.pdf",
   availability: "Taking on new projects & roles",
-  // Cal.com / Calendly link for the free intro call. While empty, "Book a free call"
-  // opens WhatsApp with a booking message instead.
+  // Calendly link for the free intro call, e.g. https://calendly.com/<you>/intro-call.
+  // While empty, "Book a free call" opens WhatsApp with a booking message instead.
   booking: "",
   // Umami (cloud.umami.is) website ID. While empty, no analytics script loads.
   umamiWebsiteId: "",

@@ -66,7 +66,7 @@ export function Hero() {
           style={{ "--i": 4 } as React.CSSProperties}
         >
           {stats.map((s) => (
-            <div key={s.label} className="flex flex-col-reverse justify-end gap-1 bg-bg p-5 sm:p-6">
+            <div key={s.label} className="spotlight flex flex-col-reverse justify-end gap-1 bg-bg p-5 sm:p-6">
               <dt className="text-sm text-muted">{s.label}</dt>
               <dd className="text-3xl font-semibold tracking-tight sm:text-4xl">
                 {s.value.replace(/[^\d]/g, "")}

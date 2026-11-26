@@ -1,27 +1,24 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { useEffect } from "react";
 
-// A card whose background glows where the pointer is (see .spotlight in globals.css).
-export function Spotlight({
-  className,
-  children,
-  as: Tag = "div",
-}: {
-  className?: string;
-  children: React.ReactNode;
-  as?: "div" | "article" | "li";
-}) {
-  return (
-    <Tag
-      className={cn("spotlight", className)}
-      onPointerMove={(e) => {
-        const r = e.currentTarget.getBoundingClientRect();
-        e.currentTarget.style.setProperty("--x", `${e.clientX - r.left}px`);
-        e.currentTarget.style.setProperty("--y", `${e.clientY - r.top}px`);
-      }}
-    >
-      {children}
-    </Tag>
-  );
+// Any element with the `spotlight` class glows where the pointer is (see .spotlight in
+// globals.css). One listener for the whole page sets --x/--y on the hovered box and
+// on any spotlight boxes around it.
+export function SpotlightTracker() {
+  useEffect(() => {
+    function onPointerMove(e: PointerEvent) {
+      let el = (e.target as Element | null)?.closest?.(".spotlight") as HTMLElement | null;
+      while (el) {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty("--x", `${e.clientX - r.left}px`);
+        el.style.setProperty("--y", `${e.clientY - r.top}px`);
+        el = el.parentElement?.closest(".spotlight") as HTMLElement | null;
+      }
+    }
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onPointerMove);
+  }, []);
+
+  return null;
 }

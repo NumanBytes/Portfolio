@@ -15,7 +15,7 @@ export function About() {
         </div>
 
         <div className="space-y-4">
-          <div className="reveal rounded-2xl border border-line bg-elevated p-6">
+          <div className="spotlight reveal rounded-2xl border border-line bg-elevated p-6 transition hover:border-line-strong">
             <p className="mb-5 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-subtle">
               <Sparkles className="size-3.5 text-accent" /> How I work
             </p>

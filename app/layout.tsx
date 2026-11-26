@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { site } from "@/lib/data";
+import { SpotlightTracker } from "@/components/spotlight";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -86,7 +87,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body className="font-sans min-h-dvh overflow-x-clip">{children}</body>
+      <body className="font-sans min-h-dvh overflow-x-clip">
+        {children}
+        <SpotlightTracker />
+      </body>
     </html>
   );
 }

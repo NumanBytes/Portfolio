@@ -12,14 +12,14 @@ export function Faq() {
 
   return (
     <section id="faq" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
-      <div className="grid gap-10 md:grid-cols-[1fr_1.6fr] md:gap-16">
+      <div className="spotlight reveal grid gap-8 rounded-3xl border border-line bg-elevated p-6 sm:p-10 md:grid-cols-[1fr_1.6fr] md:gap-14">
         <SectionHeading
           index="06"
           label="FAQ"
           title="Good questions to ask."
           intro="The things clients usually want to know before we start."
         />
-        <ul className="reveal divide-y divide-line self-start border-y border-line">
+        <ul className="divide-y divide-line self-start">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
