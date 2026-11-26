@@ -11,8 +11,8 @@ export function Work() {
       <SectionHeading
         index="01"
         label="Selected work"
-        title="Products I've built and shipped."
-        intro="See what I could build for you: my own products, taken all the way to production, and client platforms used by around 300,000 people."
+        title="Built and shipped."
+        intro="Products I run in production, and the platforms I build for clients."
       />
 
       <div className="space-y-6">

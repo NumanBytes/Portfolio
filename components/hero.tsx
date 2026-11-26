@@ -35,9 +35,8 @@ export function Hero() {
           className="enter mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-muted sm:text-xl"
           style={{ "--i": 2 } as React.CSSProperties}
         >
-          I design, build and ship SaaS products, web and mobile apps and AI features — from first idea
-          to a fast, reliable product in production. You get clear communication, honest timelines and code
-          you can be proud of.
+          Full-stack engineer building SaaS products and the systems behind them. Payments software used by
+          300,000 people; AI products I run in production.
         </p>
 
         <div className="enter mt-10 flex flex-wrap items-center gap-3" style={{ "--i": 3 } as React.CSSProperties}>
@@ -62,11 +61,11 @@ export function Hero() {
         </div>
 
         <dl
-          className="enter mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4"
+          className="enter mt-14 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-line bg-line"
           style={{ "--i": 4 } as React.CSSProperties}
         >
           {stats.map((s) => (
-            <div key={s.label} className="spotlight flex flex-col-reverse justify-end gap-1 bg-bg p-5 sm:p-6">
+            <div key={s.label} className="spotlight flex flex-col-reverse justify-end gap-1 bg-bg p-4 sm:p-6">
               <dt className="text-sm text-muted">{s.label}</dt>
               <dd className="text-3xl font-semibold tracking-tight sm:text-4xl">
                 {s.value.replace(/[^\d]/g, "")}

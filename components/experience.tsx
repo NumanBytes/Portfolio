@@ -8,7 +8,6 @@ export function ExperienceSection() {
         index="04"
         label="Experience"
         title="Where I've been shipping."
-        intro="Real production work, at a company and with clients — the experience I'll bring to your project."
       />
 
       <ol className="relative space-y-12 border-l border-line pl-6 sm:pl-10">
@@ -25,18 +24,11 @@ export function ExperienceSection() {
               <p className="font-mono text-sm text-subtle">{job.period}</p>
             </div>
 
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {job.highlights.map((h, i) => (
-                <li
-                  key={h.area}
-                  className={
-                    "spotlight rounded-2xl border border-line bg-elevated p-5 transition hover:border-line-strong " +
-                    // An odd number of cards: let the last one span the full row.
-                    (job.highlights.length % 2 === 1 && i === job.highlights.length - 1 ? "sm:col-span-2" : "")
-                  }
-                >
-                  <p className="font-mono text-xs uppercase tracking-[0.15em] text-accent">{h.area}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{h.text}</p>
+            <ul className="mt-4 max-w-3xl space-y-2">
+              {job.highlights.map((h) => (
+                <li key={h} className="flex gap-3 leading-relaxed text-muted">
+                  <span aria-hidden className="mt-2.5 size-1 shrink-0 rounded-full bg-accent" />
+                  {h}
                 </li>
               ))}
             </ul>

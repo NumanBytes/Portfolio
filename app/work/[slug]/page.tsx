@@ -123,7 +123,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <aside className="spotlight reveal mt-20 rounded-3xl border border-line bg-elevated p-8 sm:p-10">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Want something like this built?</h2>
           <p className="mt-3 text-muted">
-            I take products from idea to production, end to end. Tell me what you&apos;re building.
+            Tell me what you&apos;re building.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a

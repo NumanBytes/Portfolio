@@ -27,8 +27,7 @@ export function Contact() {
           Got an idea? Let&apos;s build it together.
         </h2>
         <p className="mt-6 max-w-xl text-pretty text-lg text-muted">
-          Tell me about your project, or just say hello on WhatsApp — I reply to every message within a day. Hiring for a
-          full-time role? I&apos;d love to hear about that too.
+          Projects or full-time roles. I reply within a day.
         </p>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[1.5fr_1fr]">
@@ -47,7 +46,7 @@ export function Contact() {
               </span>
               <span>
                 <span className="block font-medium">Book a free 20-minute call</span>
-                <span className="block text-sm text-muted">Talk through your idea, no strings attached.</span>
+                <span className="block text-sm text-muted">Talk through what you need.</span>
               </span>
             </a>
 

@@ -41,39 +41,21 @@ export const heroLines = [
 ];
 
 export const stats = [
-  { value: "3+", label: "years of experience" },
-  { value: "10+", label: "web & mobile apps in production" },
-  { value: "300K", label: "end users on apps I've built" },
-  { value: "24h", label: "reply time, every message" },
+  { value: "3+", label: "years in production" },
+  { value: "10+", label: "web & mobile apps shipped" },
+  { value: "300K", label: "end users" },
 ];
 
-export const about = {
-  paragraphs: [
-    "I'm a full-stack engineer who builds SaaS products and web apps people actually enjoy using — fast, clear and reliable. For more than three years I've shipped software for companies and clients, from first idea to live in production.",
-    "I work across the whole stack: the database and API, background jobs and AI features, the screens users touch, and the cloud server it all runs on.",
-    "I think like a freelancer: I listen to what you need, turn it into a clear plan, and keep you in the loop until it's live. You get one person who plans, builds and deploys — no hand-offs, no surprises.",
-  ],
-  principles: [
-    {
-      title: "Ship, then sharpen",
-      body: "Small, reviewable changes that reach production early, then iterate with real usage.",
-    },
-    {
-      title: "Built to grow",
-      body: "Clean APIs, solid data models and tests, so your product keeps working as users and features grow.",
-    },
-    {
-      title: "AI-accelerated, human-reviewed",
-      body: "I use Claude Code and Cursor daily to move faster, and I read every line before it ships.",
-    },
-  ],
-};
+export const about = [
+  "I build products end to end, from the database to the interface, and keep them running in production.",
+  "Day to day that's payments software for banks. On my own time, AI products like Shortlist.",
+];
 
 export type Experience = {
   company: string;
   role: string;
   period: string;
-  highlights: { area: string; text: string }[];
+  highlights: string[];
   stack: string[];
 };
 
@@ -83,40 +65,18 @@ export const experience: Experience[] = [
     role: "Software Engineer",
     period: "2024 — Present",
     highlights: [
-      {
-        area: "End to end",
-        text: "Build features from the API to the UI across several production web apps used every day.",
-      },
-      {
-        area: "Speed & quality",
-        text: "Keep apps fast and maintainable: framework upgrades, lazy loading and cleaner code.",
-      },
-      {
-        area: "Teamwork",
-        text: "Work closely with product, design, QA and backend teams to ship on schedule.",
-      },
-      {
-        area: "AI-assisted",
-        text: "Use AI coding tools daily to deliver faster, while reviewing every change.",
-      },
+      "Features end to end across three production portals and an embeddable card SDK.",
+      "GraphQL in the core Ruby service; React and Angular on the front.",
+      "Framework upgrades, performance and code quality.",
     ],
-    stack: ["React", "TypeScript", "Angular", "GraphQL", "Node.js"],
+    stack: ["React", "TypeScript", "Angular", "GraphQL", "Ruby"],
   },
   {
     company: "Freelance",
     role: "Web Developer",
     period: "2023 — 2024",
-    highlights: [
-      {
-        area: "Client work",
-        text: "Delivered responsive, accessible websites and web apps, and built REST APIs connecting them to their back ends.",
-      },
-      {
-        area: "End-to-end ownership",
-        text: "Scoped each project with the client, shared progress as it was built, and handled hosting and launch — so clients dealt with one person from idea to live site.",
-      },
-    ],
-    stack: ["JavaScript", "React", "Node.js", "Express", "REST APIs"],
+    highlights: ["Websites and web apps for small businesses, from scoping to launch, APIs and hosting included."],
+    stack: ["JavaScript", "React", "Node.js", "Express"],
   },
 ];
 
@@ -194,7 +154,6 @@ export const clientWork = {
       points: [
         "Built the payment batch module: inward and outward payments, transfers and fee application.",
         "Individual and business account management.",
-        "Shared state so every batch detail can be edited across nested screens.",
       ],
       stack: ["React", "TypeScript", "GraphQL", "Apollo Client"],
       url: "https://digitalbranch-sbx.cloudcardapp.com/login",
@@ -241,67 +200,35 @@ export const skills: { group: string; items: string[] }[] = [
 export const services = [
   {
     icon: "rocket",
-    title: "MVPs & SaaS products",
-    body: "Turn an idea into a working product: auth, payments, dashboards and an API, deployed and ready for real users.",
+    title: "SaaS products & MVPs",
+    body: "Auth, billing, dashboards and APIs, deployed and ready for users.",
     tags: ["Next.js", "NestJS", "PostgreSQL"],
   },
   {
     icon: "layout",
-    title: "Dashboards & admin portals",
-    body: "Internal tools and customer portals that make complex data simple — built for real teams and their customers.",
+    title: "Web apps & portals",
+    body: "Data-heavy dashboards and customer portals.",
     tags: ["React", "TypeScript", "GraphQL"],
   },
   {
     icon: "sparkles",
-    title: "AI features that pay for themselves",
-    body: "Add Claude-powered search, summaries, matching or content generation — with guardrails that keep API costs predictable.",
-    tags: ["Claude API", "Prompt design"],
+    title: "AI features",
+    body: "Search, summaries, matching and generation, with costs kept in check.",
+    tags: ["Claude API", "Structured outputs"],
   },
   {
     icon: "gauge",
-    title: "Speed-ups & modernisation",
-    body: "Slow or outdated React app? I upgrade, lazy-load and clean it up. Your users will feel the difference.",
-    tags: ["React 18/19", "Performance"],
-  },
-  {
-    icon: "server",
-    title: "Deployment & hosting",
-    body: "Docker, AWS and HTTPS set up properly, with backups — so your app stays up and you stay in control of it.",
-    tags: ["AWS", "Docker", "CI/CD"],
-  },
-  {
-    icon: "globe",
-    title: "Websites that convert",
-    body: "Fast, accessible, SEO-friendly marketing sites and landing pages that look great on every screen.",
-    tags: ["Next.js", "Tailwind"],
+    title: "Modernisation",
+    body: "Upgrades, performance and clean-up for existing React apps.",
+    tags: ["React", "Performance"],
   },
 ] as const;
 
 export const workProcess = [
-  {
-    title: "Intro call",
-    body: "A free 20–30 minute chat about your goals, users and deadline. You'll leave with honest advice, even if we don't work together.",
-  },
-  {
-    title: "Clear plan & quote",
-    body: "A written scope with milestones, timeline and a fixed price or estimate — no vague hourly surprises.",
-  },
-  {
-    title: "Build in the open",
-    body: "Regular demos and a live preview link, so you see progress as it happens and can steer early.",
-  },
-  {
-    title: "Launch & support",
-    body: "I deploy, hand over the code and docs, and fix any bugs free for 1 month after launch. After that, I'm here on a maintenance plan if you want me.",
-  },
-];
-
-export const promises = [
-  "Replies within 24 hours",
-  "Works with US, UK & EU time zones",
-  "You own 100% of the code",
-  "Fixed-scope quotes",
-  "1 month of free support after launch",
+  { title: "Intro call", body: "Free, 20 minutes, about what you need." },
+  { title: "Scope & quote", body: "Written scope, milestones and a fixed price." },
+  { title: "Build", body: "Regular demos on a live preview link." },
+  { title: "Launch", body: "You own the code. One month of free support." },
 ];
 
 // Kind words from people Numan has worked with. Add real quotes here and the
@@ -311,27 +238,19 @@ export const testimonials: { quote: string; name: string; role: string }[] = [];
 export const faqs = [
   {
     q: "Do you work with clients outside Pakistan?",
-    a: "Yes. I work remotely in English, overlap with US, UK and EU working hours, and communicate over WhatsApp, email, Slack or video calls — whatever suits you.",
+    a: "Yes. Remotely, in English, with hours that overlap the US, UK and EU.",
   },
   {
     q: "How do you price a project?",
-    a: "Most projects get a fixed price per milestone after the intro call, so you know the cost before work starts. Ongoing work can be billed monthly.",
-  },
-  {
-    q: "I only have an idea, not a design. Is that okay?",
-    a: "Absolutely. I'll help you shape the features and flows, use proven UI patterns, and get something in front of users quickly.",
+    a: "A fixed price per milestone, agreed before work starts.",
   },
   {
     q: "What happens after launch?",
-    a: "You get the full source code, deployment access and documentation, plus 1 month of free support: any bug in what I built gets fixed at no cost.",
+    a: "You get the code, access and docs, plus a month of free bug fixes. After that, an optional monthly maintenance plan.",
   },
   {
-    q: "What about support after the first month?",
-    a: "Happy to keep helping. Ongoing care (updates, monitoring, small fixes) is available as a monthly maintenance plan, and new features are quoted separately, just like the original project.",
-  },
-  {
-    q: "Are you available for full-time roles too?",
-    a: "Yes — I'm open to full-time full-stack and software engineering positions, remote or in Lahore, alongside selected freelance work.",
+    q: "Are you open to full-time roles?",
+    a: "Yes, full-stack and software engineering roles, remote or in Lahore.",
   },
 ];
 

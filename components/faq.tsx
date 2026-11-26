@@ -17,7 +17,7 @@ export function Faq() {
           index="06"
           label="FAQ"
           title="Questions you might have."
-          intro="Quick answers before we talk. Don't see yours? Just ask — I reply within a day."
+          intro="Anything else, just ask."
         />
         <ul className="divide-y divide-line self-start">
           {faqs.map((f, i) => {

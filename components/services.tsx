@@ -1,5 +1,5 @@
-import { ArrowUpRight, Check, Gauge, Globe, LayoutDashboard, Rocket, Server, Sparkles } from "lucide-react";
-import { bookingLink, promises, services, workProcess } from "@/lib/data";
+import { ArrowUpRight, Gauge, LayoutDashboard, Rocket, Sparkles } from "lucide-react";
+import { bookingLink, services, workProcess } from "@/lib/data";
 import { SectionHeading } from "./section-heading";
 
 const icons = {
@@ -7,8 +7,6 @@ const icons = {
   layout: LayoutDashboard,
   sparkles: Sparkles,
   gauge: Gauge,
-  server: Server,
-  globe: Globe,
 };
 
 export function Services() {
@@ -17,11 +15,10 @@ export function Services() {
       <SectionHeading
         index="02"
         label="Services"
-        title="How I can help you."
-        intro="Whether you're a founder with an idea or a team that needs another pair of hands, I can take it from a rough brief to something live and working."
+        title="What I build."
       />
 
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((s) => {
           const Icon = icons[s.icon];
           return (
@@ -41,13 +38,9 @@ export function Services() {
       </ul>
 
       <div className="reveal mt-14">
-        <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">Working together is simple.</h3>
-        <p className="mt-3 max-w-xl text-muted">
-          No jargon, no disappearing for weeks. You always know what&apos;s being built, what it costs and
-          when it&apos;ll be ready.
-        </p>
+        <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">How we&apos;d work</h3>
 
-        <ol className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
           {workProcess.map((step, i) => (
             <li key={step.title} className="spotlight bg-bg p-6">
               <span className="font-mono text-sm text-accent">0{i + 1}</span>
@@ -67,14 +60,6 @@ export function Services() {
             </li>
           ))}
         </ol>
-
-        <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
-          {promises.map((p) => (
-            <li key={p} className="flex items-center gap-2 text-sm text-muted">
-              <Check className="size-4 text-accent" /> {p}
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );
