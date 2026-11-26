@@ -12,7 +12,7 @@ export function Work() {
         index="01"
         label="Selected work"
         title="Products I've built and shipped."
-        intro="My own products, taken all the way to production — and the platforms I build for clients, used by hundreds of thousands of people."
+        intro="See what I could build for you: my own products, taken all the way to production, and client platforms used by around 300,000 people."
       />
 
       <div className="space-y-6">

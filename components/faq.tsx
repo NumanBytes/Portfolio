@@ -16,8 +16,8 @@ export function Faq() {
         <SectionHeading
           index="06"
           label="FAQ"
-          title="Good questions to ask."
-          intro="The things clients usually want to know before we start."
+          title="Questions you might have."
+          intro="Quick answers before we talk. Don't see yours? Just ask — I reply within a day."
         />
         <ul className="divide-y divide-line self-start">
           {faqs.map((f, i) => {

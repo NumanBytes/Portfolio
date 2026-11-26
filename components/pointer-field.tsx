@@ -2,10 +2,14 @@
 
 import { useEffect, useRef } from "react";
 
-// Accent colour per theme, as RGB so the canvas can vary the alpha.
-const COLORS = { dark: "94, 234, 192", light: "0, 133, 108" };
+// Per theme: accent colour (RGB, so the canvas can vary the alpha) and how strongly dots,
+// links and pointer links show. Light needs more ink to read as clearly as dark.
+const THEMES = {
+  dark: { rgb: "94, 234, 192", dot: 0.4, link: 0.13, pointer: 0.35, width: 1, size: 1.4 },
+  light: { rgb: "0, 120, 96", dot: 0.6, link: 0.26, pointer: 0.6, width: 1.2, size: 1.7 },
+};
 const LINK_DISTANCE = 110;
-const POINTER_RADIUS = 150;
+const POINTER_RADIUS = 160;
 
 type Dot = { x: number; y: number; vx: number; vy: number };
 
@@ -45,7 +49,8 @@ export function PointerField() {
     }
 
     function draw() {
-      const rgb = document.documentElement.dataset.theme === "light" ? COLORS.light : COLORS.dark;
+      const theme = THEMES[document.documentElement.dataset.theme === "light" ? "light" : "dark"];
+      const rgb = theme.rgb;
       ctx!.clearRect(0, 0, width, height);
 
       for (const d of dots) {
@@ -65,20 +70,20 @@ export function PointerField() {
           if (d.y < -10) d.y = height + 10;
           if (d.y > height + 10) d.y = -10;
         }
-        ctx!.fillStyle = `rgba(${rgb}, 0.4)`;
+        ctx!.fillStyle = `rgba(${rgb}, ${theme.dot})`;
         ctx!.beginPath();
-        ctx!.arc(d.x, d.y, 1.4, 0, Math.PI * 2);
+        ctx!.arc(d.x, d.y, theme.size, 0, Math.PI * 2);
         ctx!.fill();
       }
 
-      ctx!.lineWidth = 1;
+      ctx!.lineWidth = theme.width;
       for (let i = 0; i < dots.length; i++) {
         const a = dots[i];
         for (let j = i + 1; j < dots.length; j++) {
           const b = dots[j];
           const dist = Math.hypot(a.x - b.x, a.y - b.y);
           if (dist < LINK_DISTANCE) {
-            ctx!.strokeStyle = `rgba(${rgb}, ${(1 - dist / LINK_DISTANCE) * 0.13})`;
+            ctx!.strokeStyle = `rgba(${rgb}, ${(1 - dist / LINK_DISTANCE) * theme.link})`;
             ctx!.beginPath();
             ctx!.moveTo(a.x, a.y);
             ctx!.lineTo(b.x, b.y);
@@ -87,7 +92,7 @@ export function PointerField() {
         }
         const toPointer = Math.hypot(a.x - pointer.x, a.y - pointer.y);
         if (toPointer < POINTER_RADIUS) {
-          ctx!.strokeStyle = `rgba(${rgb}, ${(1 - toPointer / POINTER_RADIUS) * 0.35})`;
+          ctx!.strokeStyle = `rgba(${rgb}, ${(1 - toPointer / POINTER_RADIUS) * theme.pointer})`;
           ctx!.beginPath();
           ctx!.moveTo(a.x, a.y);
           ctx!.lineTo(pointer.x, pointer.y);

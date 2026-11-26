@@ -8,7 +8,7 @@ export function Skills() {
         index="05"
         label="Toolkit"
         title="The stack I reach for."
-        intro="What I use today across the whole stack: frontend, APIs, data, AI and the cloud it all runs on."
+        intro="Modern, proven tools I'll use to build your product — across the frontend, APIs, data, AI and the cloud it runs on."
       />
 
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -8,7 +8,7 @@ export function ExperienceSection() {
         index="04"
         label="Experience"
         title="Where I've been shipping."
-        intro="Building and shipping production software for companies and clients."
+        intro="Real production work, at a company and with clients — the experience I'll bring to your project."
       />
 
       <ol className="relative space-y-12 border-l border-line pl-6 sm:pl-10">
