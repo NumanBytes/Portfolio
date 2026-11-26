@@ -22,7 +22,7 @@ export const site = {
   availability: "Taking on new projects & roles",
   // Calendly link for the free intro call, e.g. https://calendly.com/<you>/intro-call.
   // While empty, "Book a free call" opens WhatsApp with a booking message instead.
-  booking: "",
+  booking: "https://calendly.com/numaan-razaq",
   // Umami (cloud.umami.is) website ID. While empty, no analytics script loads.
   umamiWebsiteId: "",
   socials: {
