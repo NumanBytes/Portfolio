@@ -43,7 +43,7 @@ export function ExperienceSection() {
 
             <ul className="mt-5 flex flex-wrap gap-2" aria-label="Technologies">
               {job.stack.map((t) => (
-                <li key={t} className="rounded-full border border-line px-3 py-1 font-mono text-xs text-muted">
+                <li key={t} className="chip rounded-full border border-line px-3 py-1 font-mono text-xs text-muted">
                   {t}
                 </li>
               ))}

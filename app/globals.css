@@ -20,19 +20,34 @@
 }
 
 [data-theme="light"] {
-  --bg: oklch(0.985 0.003 260);
+  --bg: oklch(0.978 0.006 175);
   --bg-elevated: oklch(1 0 0);
-  --fg: oklch(0.2 0.01 260);
-  --muted: oklch(0.45 0.012 260);
-  --subtle: oklch(0.58 0.012 260);
-  --line: oklch(0 0 0 / 0.08);
-  --line-strong: oklch(0 0 0 / 0.16);
+  --fg: oklch(0.2 0.015 230);
+  --muted: oklch(0.45 0.015 230);
+  --subtle: oklch(0.56 0.015 230);
+  --line: oklch(0.3 0.03 200 / 0.1);
+  --line-strong: oklch(0.3 0.03 200 / 0.2);
   --accent: oklch(0.55 0.13 170);
   --accent-fg: oklch(0.99 0 0);
   --accent-soft: oklch(0.55 0.13 170 / 0.1);
-  --glow: oklch(0.75 0.12 170 / 0.25);
+  --glow: oklch(0.8 0.12 170 / 0.45);
   --grid: oklch(0 0 0 / 0.05);
+  --card-shadow: 0 1px 2px oklch(0.3 0.05 200 / 0.05), 0 12px 32px -16px oklch(0.4 0.08 180 / 0.25);
   color-scheme: light;
+}
+
+/* Light mode: soft colour washes behind the page and lifted cards, so it has the same
+   depth the dark theme gets from its glow. */
+[data-theme="light"] body {
+  background-image:
+    radial-gradient(70rem 45rem at 90% -10%, oklch(0.9 0.07 170 / 0.55), transparent 70%),
+    radial-gradient(55rem 40rem at -10% 35%, oklch(0.93 0.05 230 / 0.5), transparent 70%),
+    radial-gradient(50rem 40rem at 100% 85%, oklch(0.93 0.05 150 / 0.45), transparent 70%);
+  background-attachment: fixed;
+}
+
+[data-theme="light"] .bg-elevated {
+  box-shadow: var(--card-shadow);
 }
 
 @theme inline {
@@ -60,6 +75,21 @@ body {
   color: var(--fg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Tech-stack tags: they react to the pointer but keep the normal arrow, as they aren't links. */
+.chip {
+  cursor: default;
+  user-select: none;
+  transition:
+    color 150ms,
+    background-color 150ms,
+    border-color 150ms;
+}
+.chip:hover {
+  color: var(--accent);
+  background-color: var(--accent-soft);
+  border-color: color-mix(in oklch, var(--accent) 40%, transparent);
 }
 
 ::selection {

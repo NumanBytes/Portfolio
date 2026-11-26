@@ -45,11 +45,23 @@ export function Nav() {
             : "border-transparent",
         )}
       >
-        <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight" onClick={() => setOpen(false)}>
+        <a
+          href="#top"
+          aria-label={site.name}
+          className="flex items-center font-semibold tracking-tight"
+          onClick={() => setOpen(false)}
+        >
           <span className="grid size-7 place-items-center rounded-lg bg-accent font-mono text-xs font-bold text-accent-fg">
             NR
           </span>
-          <span className="hidden sm:inline">{site.name}</span>
+          <span
+            className={cn(
+              "hidden overflow-hidden whitespace-nowrap transition-all duration-300 sm:inline-block",
+              scrolled ? "ml-0 max-w-0 opacity-0" : "ml-2 max-w-40 opacity-100",
+            )}
+          >
+            {site.name}
+          </span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">

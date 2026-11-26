@@ -25,7 +25,7 @@ export function Skills() {
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-subtle">{s.group}</h3>
             <ul className="mt-4 flex flex-wrap gap-2">
               {s.items.map((item) => (
-                <li key={item} className="rounded-lg bg-line px-3 py-1.5 text-sm">
+                <li key={item} className="chip rounded-lg border border-transparent bg-line px-3 py-1.5 text-sm">
                   {item}
                 </li>
               ))}

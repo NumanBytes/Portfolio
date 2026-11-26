@@ -6,9 +6,6 @@ export function Footer() {
       <p>
         © {new Date().getFullYear()} {site.name}. Built with Next.js &amp; Tailwind, self-hosted on AWS.
       </p>
-      <a href="#top" className="transition hover:text-fg">
-        Back to top ↑
-      </a>
     </footer>
   );
 }

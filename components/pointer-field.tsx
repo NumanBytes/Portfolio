@@ -4,8 +4,8 @@ import { useEffect, useRef } from "react";
 
 // Accent colour per theme, as RGB so the canvas can vary the alpha.
 const COLORS = { dark: "94, 234, 192", light: "0, 133, 108" };
-const LINK_DISTANCE = 120;
-const POINTER_RADIUS = 170;
+const LINK_DISTANCE = 110;
+const POINTER_RADIUS = 150;
 
 type Dot = { x: number; y: number; vx: number; vy: number };
 
@@ -34,8 +34,8 @@ export function PointerField() {
       canvas!.width = width * dpr;
       canvas!.height = height * dpr;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
-      // About one dot per 11,000 px², so phones get fewer than desktops.
-      const count = Math.min(120, Math.round((width * height) / 11000));
+      // About one dot per 18,000 px², so phones get fewer than desktops.
+      const count = Math.min(80, Math.round((width * height) / 18000));
       dots = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -65,7 +65,7 @@ export function PointerField() {
           if (d.y < -10) d.y = height + 10;
           if (d.y > height + 10) d.y = -10;
         }
-        ctx!.fillStyle = `rgba(${rgb}, 0.55)`;
+        ctx!.fillStyle = `rgba(${rgb}, 0.4)`;
         ctx!.beginPath();
         ctx!.arc(d.x, d.y, 1.4, 0, Math.PI * 2);
         ctx!.fill();
@@ -78,7 +78,7 @@ export function PointerField() {
           const b = dots[j];
           const dist = Math.hypot(a.x - b.x, a.y - b.y);
           if (dist < LINK_DISTANCE) {
-            ctx!.strokeStyle = `rgba(${rgb}, ${(1 - dist / LINK_DISTANCE) * 0.22})`;
+            ctx!.strokeStyle = `rgba(${rgb}, ${(1 - dist / LINK_DISTANCE) * 0.13})`;
             ctx!.beginPath();
             ctx!.moveTo(a.x, a.y);
             ctx!.lineTo(b.x, b.y);
@@ -87,7 +87,7 @@ export function PointerField() {
         }
         const toPointer = Math.hypot(a.x - pointer.x, a.y - pointer.y);
         if (toPointer < POINTER_RADIUS) {
-          ctx!.strokeStyle = `rgba(${rgb}, ${(1 - toPointer / POINTER_RADIUS) * 0.55})`;
+          ctx!.strokeStyle = `rgba(${rgb}, ${(1 - toPointer / POINTER_RADIUS) * 0.35})`;
           ctx!.beginPath();
           ctx!.moveTo(a.x, a.y);
           ctx!.lineTo(pointer.x, pointer.y);

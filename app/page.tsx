@@ -11,6 +11,7 @@ import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { PointerField } from "@/components/pointer-field";
+import { BackToTop } from "@/components/back-to-top";
 
 export default function Home() {
   return (
@@ -35,6 +36,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
       <WhatsAppButton />
     </>
   );
