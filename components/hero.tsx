@@ -1,13 +1,11 @@
 import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
-import { heroLines, site, stats, whatsappLink } from "@/lib/data";
-import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from "./icons";
+import { heroLines, site, stats } from "@/lib/data";
 import { LocalTime } from "./local-time";
 import { Typewriter } from "./typewriter";
 
 export function Hero() {
   return (
-    <section id="top" className="relative isolate overflow-hidden pt-36 pb-20 sm:pt-44 md:pb-28">
-      <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
+    <section id="top" className="relative isolate overflow-hidden pt-32 pb-10 sm:pt-40 md:pb-14">
       <div aria-hidden className="glow absolute -top-40 left-1/2 -z-10 h-[36rem] w-[60rem] -translate-x-1/2" />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
@@ -37,7 +35,7 @@ export function Hero() {
           className="enter mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-muted sm:text-xl"
           style={{ "--i": 2 } as React.CSSProperties}
         >
-          I design, build and ship web apps, dashboards, SaaS products and AI features — from first idea
+          I design, build and ship SaaS products, web and mobile apps and AI features — from first idea
           to a fast, reliable product in production. You get clear communication, honest timelines and code
           you can be proud of.
         </p>
@@ -57,39 +55,10 @@ export function Hero() {
             See my work
             <ArrowUpRight className="size-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
-          <div className="ml-1 flex items-center gap-1">
-            <a
-              href={site.socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="grid size-12 place-items-center rounded-full text-muted transition hover:bg-line hover:text-fg"
-            >
-              <GitHubIcon className="size-5" />
-            </a>
-            <a
-              href={site.socials.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="grid size-12 place-items-center rounded-full text-muted transition hover:bg-line hover:text-fg"
-            >
-              <LinkedInIcon className="size-5" />
-            </a>
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="grid size-12 place-items-center rounded-full text-muted transition hover:bg-line hover:text-[#25D366]"
-            >
-              <WhatsAppIcon className="size-5" />
-            </a>
-          </div>
         </div>
 
         <dl
-          className="enter mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4"
+          className="enter mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4"
           style={{ "--i": 4 } as React.CSSProperties}
         >
           {stats.map((s) => (

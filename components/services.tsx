@@ -14,7 +14,7 @@ const icons = {
 
 export function Services() {
   return (
-    <section id="services" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 md:py-32">
+    <section id="services" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
       <SectionHeading
         index="02"
         label="Services"
@@ -42,7 +42,7 @@ export function Services() {
         })}
       </ul>
 
-      <div className="reveal mt-20">
+      <div className="reveal mt-14">
         <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">Working together is simple.</h3>
         <p className="mt-3 max-w-xl text-muted">
           No jargon, no disappearing for weeks. You always know what&apos;s being built, what it costs and

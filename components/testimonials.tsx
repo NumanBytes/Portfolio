@@ -7,7 +7,7 @@ export function Testimonials() {
   if (testimonials.length === 0) return null;
 
   return (
-    <section id="testimonials" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 md:py-32">
+    <section id="testimonials" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
       <SectionHeading index="" label="Kind words" title="What people say." />
       <ul className="grid gap-4 md:grid-cols-2">
         {testimonials.map((t) => (

@@ -3,14 +3,14 @@
 
 export const site = {
   name: "Numan Razzaq",
-  role: "Software Engineer",
-  tagline: "Full-stack engineer who sweats the frontend.",
+  role: "Full-Stack Engineer",
+  tagline: "Full-stack engineer building SaaS products end to end.",
   // Used for canonical URLs, Open Graph and the sitemap. Override at build time with
   // NEXT_PUBLIC_SITE_URL when the domain changes.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://numan-razzaq.duckdns.org",
   description:
-    "Numan Razzaq is a software engineer in Lahore who builds web apps, dashboards, SaaS " +
-    "products and AI features with React, TypeScript, Next.js and Node.js.",
+    "Numan Razzaq is a full-stack engineer in Lahore who builds SaaS products, web and mobile " +
+    "apps and AI features with React, Next.js, Node.js, NestJS and PostgreSQL.",
   location: "Lahore, Pakistan",
   timeZone: "Asia/Karachi",
   email: "numaan.razaq@gmail.com",
@@ -29,23 +29,23 @@ export const site = {
 // Lines the hero headline types out one after another, then loops.
 export const heroLines = [
   "Hi, my name is Numan.",
-  "I'm a software engineer.",
-  "I build SaaS & web apps.",
+  "I'm a full-stack engineer.",
+  "I build SaaS products.",
   "I turn ideas into products.",
   "Let's build yours next.",
 ];
 
 export const stats = [
   { value: "3+", label: "years of experience" },
-  { value: "10+", label: "apps & portals in production" },
+  { value: "10+", label: "web & mobile apps in production" },
   { value: "300K", label: "end users on apps I've built" },
   { value: "24h", label: "reply time, every message" },
 ];
 
 export const about = {
   paragraphs: [
-    "I'm a software engineer who builds web apps people actually enjoy using — fast, clear and reliable. For more than three years I've shipped products for companies and clients, from first idea to live in production.",
-    "I started on the frontend and still care most about what users touch. But I work end to end: the API, the database, the screens and the server it all runs on.",
+    "I'm a full-stack engineer who builds SaaS products and web apps people actually enjoy using — fast, clear and reliable. For more than three years I've shipped software for companies and clients, from first idea to live in production.",
+    "I work across the whole stack: the database and API, background jobs and AI features, the screens users touch, and the cloud server it all runs on.",
     "I think like a freelancer: I listen to what you need, turn it into a clear plan, and keep you in the loop until it's live. You get one person who plans, builds and deploys — no hand-offs, no surprises.",
   ],
   principles: [
@@ -54,8 +54,8 @@ export const about = {
       body: "Small, reviewable changes that reach production early, then iterate with real usage.",
     },
     {
-      title: "Performance is a feature",
-      body: "Lazy loading, lean bundles and measured upgrades — not micro-optimisation for its own sake.",
+      title: "Built to grow",
+      body: "Clean APIs, solid data models and tests, so your product keeps working as users and features grow.",
     },
     {
       title: "AI-accelerated, human-reviewed",
@@ -68,7 +68,6 @@ export type Experience = {
   company: string;
   role: string;
   period: string;
-  location: string;
   highlights: { area: string; text: string }[];
   stack: string[];
 };
@@ -77,8 +76,7 @@ export const experience: Experience[] = [
   {
     company: "CloudCard Inc.",
     role: "Software Engineer",
-    period: "May 2024 — Present",
-    location: "Full-time",
+    period: "2024 — Present",
     highlights: [
       {
         area: "End to end",
@@ -102,8 +100,7 @@ export const experience: Experience[] = [
   {
     company: "Freelance",
     role: "Web Developer",
-    period: "Jul 2023 — May 2024",
-    location: "Remote",
+    period: "2023 — 2024",
     highlights: [
       {
         area: "Client work",
@@ -220,14 +217,14 @@ export const clientWork = {
 export const skills: { group: string; items: string[] }[] = [
   {
     group: "Frontend",
-    items: ["React", "TypeScript", "Next.js", "JavaScript", "Angular", "Redux Toolkit", "Apollo Client", "Vite", "Web accessibility"],
+    items: ["React", "Next.js", "TypeScript", "React Query", "Redux Toolkit", "Apollo Client", "Angular", "Vite", "Accessibility"],
   },
-  { group: "Backend", items: ["Node.js", "NestJS", "Express", "GraphQL", "REST APIs", "Ruby", "JWT auth"] },
-  { group: "Data", items: ["PostgreSQL", "MySQL", "MongoDB", "Prisma", "Redis"] },
-  { group: "Cloud & DevOps", items: ["AWS EC2", "Docker", "Caddy", "Nginx", "Linux", "Vercel", "CI/CD"] },
-  { group: "UI", items: ["Tailwind CSS", "Material UI", "Ant Design", "SASS", "Figma"] },
-  { group: "AI workflow", items: ["Claude Code", "Cursor", "Claude API", "Prompt engineering"] },
-  { group: "Quality", items: ["Vitest", "SonarQube", "Git", "GitHub Actions", "Postman"] },
+  { group: "Backend", items: ["Node.js", "NestJS", "Express", "GraphQL", "REST APIs", "Zod", "JWT auth", "Ruby"] },
+  { group: "AI engineering", items: ["Claude API", "Structured outputs", "MCP", "Prompt engineering", "Claude Code", "Cursor"] },
+  { group: "Data & queues", items: ["PostgreSQL", "Prisma", "Redis", "BullMQ", "MongoDB", "MySQL"] },
+  { group: "Cloud & DevOps", items: ["AWS", "Docker", "GitHub Actions", "Linux", "Nginx", "Vercel"] },
+  { group: "Testing", items: ["Vitest", "Playwright", "ESLint", "SonarQube"] },
+  { group: "UI", items: ["Tailwind CSS", "shadcn/ui", "Material UI", "Ant Design", "Figma"] },
 ];
 
 export const services = [
@@ -323,7 +320,7 @@ export const faqs = [
   },
   {
     q: "Are you available for full-time roles too?",
-    a: "Yes — I'm open to full-time frontend and full-stack positions, remote or in Lahore, alongside selected freelance work.",
+    a: "Yes — I'm open to full-time full-stack and software engineering positions, remote or in Lahore, alongside selected freelance work.",
   },
 ];
 

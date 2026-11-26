@@ -1,6 +1,5 @@
 import { Mail } from "lucide-react";
 import { site, whatsappLink } from "@/lib/data";
-import { CopyEmail } from "./copy-email";
 import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from "./icons";
 import { LocalTime } from "./local-time";
 import { ProjectForm } from "./project-form";
@@ -14,7 +13,7 @@ const channels = [
 
 export function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 md:py-32">
+    <section id="contact" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
       <div className="reveal relative isolate overflow-hidden rounded-[2rem] border border-line bg-elevated px-6 py-14 sm:px-12 md:py-20">
         <div aria-hidden className="glow absolute -right-40 -bottom-60 -z-10 size-[40rem]" />
         <div aria-hidden className="bg-grid absolute inset-0 -z-10 opacity-60" />
@@ -65,7 +64,6 @@ export function Contact() {
               ))}
             </ul>
 
-            <CopyEmail />
           </aside>
         </div>
       </div>

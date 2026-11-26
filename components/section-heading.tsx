@@ -10,7 +10,7 @@ export function SectionHeading({
   intro?: string;
 }) {
   return (
-    <header className="reveal mb-12 max-w-2xl md:mb-16">
+    <header className="reveal mb-10 max-w-2xl md:mb-12">
       <p className="mb-4 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
         {index && (
           <>

@@ -3,7 +3,7 @@ import { SectionHeading } from "./section-heading";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 md:py-32">
+    <section id="experience" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
       <SectionHeading
         index="04"
         label="Experience"
@@ -11,7 +11,7 @@ export function ExperienceSection() {
         intro="Building and shipping production software for companies and clients."
       />
 
-      <ol className="relative space-y-16 border-l border-line pl-6 sm:pl-10">
+      <ol className="relative space-y-12 border-l border-line pl-6 sm:pl-10">
         {experience.map((job) => (
           <li key={job.company} className="reveal relative">
             <span
@@ -24,7 +24,6 @@ export function ExperienceSection() {
               </h3>
               <p className="font-mono text-sm text-subtle">{job.period}</p>
             </div>
-            <p className="mt-1 text-sm text-subtle">{job.location}</p>
 
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {job.highlights.map((h, i) => (

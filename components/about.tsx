@@ -4,8 +4,8 @@ import { SectionHeading } from "./section-heading";
 
 export function About() {
   return (
-    <section id="about" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 md:py-32">
-      <SectionHeading index="01" label="About" title="Frontend roots, full-stack reach." />
+    <section id="about" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
+      <SectionHeading index="01" label="About" title="Full-stack, from idea to production." />
 
       <div className="grid gap-12 md:grid-cols-[1.4fr_1fr] md:gap-16">
         <div className="reveal space-y-6 text-pretty text-lg leading-relaxed text-muted">

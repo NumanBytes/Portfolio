@@ -4,12 +4,12 @@ import { Spotlight } from "./spotlight";
 
 export function Skills() {
   return (
-    <section id="skills" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 md:py-32">
+    <section id="skills" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
       <SectionHeading
         index="05"
         label="Toolkit"
         title="The stack I reach for."
-        intro="Deep in React and TypeScript; comfortable across the API, database and server it all runs on."
+        intro="What I use today across the whole stack: frontend, APIs, data, AI and the cloud it all runs on."
       />
 
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

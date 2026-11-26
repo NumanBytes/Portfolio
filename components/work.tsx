@@ -7,7 +7,7 @@ import { Spotlight } from "./spotlight";
 
 export function Work() {
   return (
-    <section id="work" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 md:py-32">
+    <section id="work" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
       <SectionHeading
         index="03"
         label="Selected work"
@@ -21,7 +21,7 @@ export function Work() {
         ))}
       </div>
 
-      <div className="mt-24">
+      <div className="mt-16">
         <div className="reveal mb-8 max-w-2xl">
           <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">Client work at CloudCard</h3>
           <p className="mt-3 text-muted">{clientWork.intro}</p>

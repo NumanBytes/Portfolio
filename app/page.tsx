@@ -10,6 +10,7 @@ import { Skills } from "@/components/skills";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { PointerField } from "@/components/pointer-field";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       >
         Skip to content
       </a>
+      <PointerField />
       <Nav />
       <main id="main">
         <Hero />
