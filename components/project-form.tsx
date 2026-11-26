@@ -66,6 +66,7 @@ export function ProjectForm() {
         <button
           type="submit"
           value="email"
+          data-umami-event="enquiry:email"
           className="group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 font-medium text-accent-fg transition hover:brightness-110"
         >
           Send by email
@@ -74,6 +75,7 @@ export function ProjectForm() {
         <button
           type="submit"
           value="whatsapp"
+          data-umami-event="enquiry:whatsapp"
           className="inline-flex h-12 items-center gap-2 rounded-full border border-line-strong px-5 font-medium transition hover:border-[#25D366] hover:text-[#25D366]"
         >
           <WhatsAppIcon className="size-4" />

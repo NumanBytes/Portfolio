@@ -77,6 +77,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {site.umamiWebsiteId && (
+          // Cookie-free visitor stats (umami.is); also counts clicks on data-umami-event elements.
+          <script defer src="https://cloud.umami.is/script.js" data-website-id={site.umamiWebsiteId} />
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

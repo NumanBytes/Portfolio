@@ -1,5 +1,5 @@
-import { Mail } from "lucide-react";
-import { site, whatsappLink } from "@/lib/data";
+import { CalendarDays, Mail } from "lucide-react";
+import { bookingLink, site, whatsappLink } from "@/lib/data";
 import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from "./icons";
 import { LocalTime } from "./local-time";
 import { ProjectForm } from "./project-form";
@@ -35,6 +35,22 @@ export function Contact() {
           <ProjectForm />
 
           <aside className="space-y-6">
+            <a
+              href={bookingLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-umami-event="contact:book-call"
+              className="group flex items-center gap-4 rounded-2xl border border-accent/40 bg-accent-soft p-5 transition hover:border-accent"
+            >
+              <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent text-accent-fg">
+                <CalendarDays className="size-5" />
+              </span>
+              <span>
+                <span className="block font-medium">Book a free 20-minute call</span>
+                <span className="block text-sm text-muted">Talk through your idea, no strings attached.</span>
+              </span>
+            </a>
+
             <div className="rounded-2xl border border-line bg-bg p-5">
               <p className="flex items-center gap-2 text-sm">
                 <span className="pulse-dot relative size-2 rounded-full bg-accent" />

@@ -26,9 +26,9 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
-        <About />
-        <Services />
         <Work />
+        <Services />
+        <About />
         <Testimonials />
         <ExperienceSection />
         <Skills />

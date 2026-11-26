@@ -1,4 +1,5 @@
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, ChevronRight, Lock } from "lucide-react";
 import { clientWork, featuredProjects, site, type Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { GitHubIcon } from "./icons";
@@ -9,7 +10,7 @@ export function Work() {
   return (
     <section id="work" className="mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-20">
       <SectionHeading
-        index="03"
+        index="01"
         label="Selected work"
         title="Products I've built and shipped."
         intro="My own products, taken all the way to production — and the platforms I build for clients, used by hundreds of thousands of people."
@@ -45,16 +46,22 @@ export function Work() {
                 ))}
               </ul>
               <p className="mt-5 font-mono text-xs text-subtle">{p.stack.join(" · ")}</p>
-              {p.demo && (
-                <a
-                  href={p.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group mt-5 inline-flex h-10 w-fit items-center gap-2 rounded-full bg-fg px-4 text-sm font-medium text-bg transition hover:opacity-85"
-                >
-                  View sandbox
-                  <ArrowUpRight className="size-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </a>
+              {p.url && (
+                <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-umami-event={`portal:${p.name}`}
+                    className="group inline-flex h-10 items-center gap-2 rounded-full border border-line-strong px-4 text-sm font-medium transition hover:bg-line"
+                  >
+                    Live portal
+                    <ArrowUpRight className="size-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </a>
+                  <span className="inline-flex items-center gap-1.5 text-xs text-subtle">
+                    <Lock className="size-3" /> Login only — client data stays private
+                  </span>
+                </div>
               )}
             </Spotlight>
           ))}
@@ -104,15 +111,26 @@ function FeaturedProject({ project: p, wide }: { project: Project; wide: boolean
           <p className="mt-4 text-pretty text-lg text-muted">{p.description}</p>
 
           <div className="mt-8 flex flex-wrap gap-3">
+            {p.caseStudy && (
+              <Link
+                href={`/work/${p.caseStudy}/`}
+                data-umami-event={`case-study:${p.slug}`}
+                className="group inline-flex h-10 items-center gap-2 rounded-full bg-accent px-4 text-sm font-medium text-accent-fg transition hover:brightness-110"
+              >
+                Case study
+                <ArrowRight className="size-3.5 transition group-hover:translate-x-0.5" />
+              </Link>
+            )}
             {p.links.map((l, i) => (
               <a
                 key={l.href}
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-umami-event={`${l.label.toLowerCase()}:${p.slug}`}
                 className={cn(
                   "group inline-flex h-10 items-center gap-2 rounded-full px-4 text-sm font-medium transition",
-                  i === 0 ? "bg-fg text-bg hover:opacity-85" : "border border-line-strong hover:bg-line",
+                  i === 0 && !p.caseStudy ? "bg-fg text-bg hover:opacity-85" : "border border-line-strong hover:bg-line",
                 )}
               >
                 {l.label === "Source" && <GitHubIcon className="size-4" />}

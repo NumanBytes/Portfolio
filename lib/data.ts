@@ -20,6 +20,11 @@ export const site = {
   // The Resume button downloads this file; replace public/Numan_Razzaq_Resume.pdf to update it.
   resume: "/Numan_Razzaq_Resume.pdf",
   availability: "Taking on new projects & roles",
+  // Cal.com / Calendly link for the free intro call. While empty, "Book a free call"
+  // opens WhatsApp with a booking message instead.
+  booking: "",
+  // Umami (cloud.umami.is) website ID. While empty, no analytics script loads.
+  umamiWebsiteId: "",
   socials: {
     github: "https://github.com/NumanBytes",
     linkedin: "https://linkedin.com/in/numan-razzaq",
@@ -125,6 +130,8 @@ export type Project = {
   links: { label: string; href: string }[];
   status?: "Live" | "In development";
   pipeline?: string[];
+  // Slug of a case-study page under /work/, if the project has one.
+  caseStudy?: string;
 };
 
 export const featuredProjects: Project[] = [
@@ -147,6 +154,7 @@ export const featuredProjects: Project[] = [
     ],
     status: "Live",
     pipeline: ["Job sources", "Rule pre-filter", "Claude scoring", "Tailored resume", "Notify"],
+    caseStudy: "shortlist",
   },
   {
     slug: "manzil",
@@ -171,8 +179,8 @@ export type ClientProject = {
   description: string;
   points: string[];
   stack: string[];
-  // Sandbox demo link; the button only appears once this is filled in.
-  demo?: string;
+  // The live portal. Visitors only see its login page; client data stays private.
+  url?: string;
 };
 
 // Production portals Numan builds at CloudCard, a card & payments platform.
@@ -189,6 +197,7 @@ export const clientWork = {
         "Shared state so every batch detail can be edited across nested screens.",
       ],
       stack: ["React", "TypeScript", "GraphQL", "Apollo Client"],
+      url: "https://digitalbranch-sbx.cloudcardapp.com/login",
     },
     {
       name: "Partner Portal",
@@ -199,6 +208,7 @@ export const clientWork = {
         "Account and fund management screens.",
       ],
       stack: ["React", "TypeScript", "GraphQL", "Ruby"],
+      url: "https://partner-portal.cloudcardapp.com/",
     },
     {
       name: "Consumer Portal",
@@ -210,6 +220,7 @@ export const clientWork = {
         "A new card design for the digital card widget.",
       ],
       stack: ["React", "TypeScript", "Material UI"],
+      url: "https://yesbank-sbx.cloudcardapp.com/login",
     },
   ] satisfies ClientProject[] as ClientProject[],
 };
@@ -328,9 +339,9 @@ export const projectTypes = ["New product / MVP", "Web app or dashboard", "AI fe
 export const budgets = ["< $1k", "$1k – $5k", "$5k – $15k", "$15k+", "Not sure yet"];
 
 export const nav = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
   { href: "#work", label: "Work" },
+  { href: "#services", label: "Services" },
+  { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
@@ -338,3 +349,92 @@ export const nav = [
 export function whatsappLink(text = "Hi Numan, I found your portfolio and would like to talk about a project.") {
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
 }
+
+// Where "Book a free call" goes: the booking page once set, WhatsApp until then.
+export function bookingLink() {
+  return site.booking || whatsappLink("Hi Numan, I'd like to book a free intro call about my project.");
+}
+
+export type CaseStudy = {
+  slug: string;
+  name: string;
+  tagline: string;
+  role: string;
+  stack: string[];
+  links: { label: string; href: string }[];
+  metrics: { value: string; label: string }[];
+  sections: { heading: string; body: string[]; bullets?: string[] }[];
+};
+
+export const caseStudies: CaseStudy[] = [
+  {
+    slug: "shortlist",
+    name: "Shortlist",
+    tagline: "An AI job-search platform that finds roles worth applying to, and writes a truthful resume for each.",
+    role: "Solo: product, design, backend, frontend and deployment",
+    stack: ["NestJS", "React", "Vite", "PostgreSQL", "Prisma", "Redis", "BullMQ", "Claude API", "Docker", "AWS EC2"],
+    links: [
+      { label: "Live app", href: "https://numan-shortlist.duckdns.org" },
+      { label: "Source", href: "https://github.com/NumanBytes/shortlist" },
+    ],
+    metrics: [
+      { value: "48", label: "job sources watched" },
+      { value: "1,000+", label: "postings checked every night" },
+      { value: "$0.006", label: "AI cost to score a job" },
+      { value: "490+", label: "automated tests in CI" },
+    ],
+    sections: [
+      {
+        heading: "The problem",
+        body: [
+          "Job hunting means checking dozens of boards every day, reading descriptions that mostly don't fit, and rewriting a resume for each one that does.",
+          "AI tools can speed that up, but they happily invent experience you don't have, and running every posting through a large model gets expensive fast.",
+        ],
+      },
+      {
+        heading: "What I built",
+        body: [
+          "Shortlist watches 48 job sources, scores each new role against your verified skills, tailors a resume for the good matches, and notifies you. You make the final click.",
+        ],
+      },
+      {
+        heading: "Architecture",
+        body: [
+          "Three processes, each with one job: a React PWA, a NestJS API, and a separate worker that runs on a BullMQ queue in Redis. The API only enqueues work and answers right away, so a slow job board or a 20-second AI call never blocks someone using the app.",
+          "PostgreSQL is the single source of truth; Redis holds only the queue, so losing it costs nothing a nightly run can't redo. A heartbeat key in Redis tells the UI when no worker is running, instead of leaving people staring at a spinner.",
+        ],
+        bullets: [
+          "One adapter per hiring platform (Greenhouse, Lever, SmartRecruiters, Workable and more), with de-duplication across sources",
+          "Shared Zod schemas, so the API, worker and UI agree on every type",
+        ],
+      },
+      {
+        heading: "AI that stays honest and cheap",
+        body: [
+          "The rule is simple: the model reads, the code decides. Claude extracts a job's requirements; deterministic code scores them against skills you have verified.",
+        ],
+        bullets: [
+          "A rule-based pre-filter drops poor fits before any AI call is made",
+          "Every call is budget-guarded and cost-logged, at about $0.006 per scored job",
+          "A tailored resume is rejected unless every claim cites verified evidence",
+        ],
+      },
+      {
+        heading: "Security and reliability",
+        body: ["It handles real accounts and payments, so it's built like it:"],
+        bullets: [
+          "Hand-built JWT auth with rotating refresh tokens and reuse detection",
+          "Redis-backed rate limits on login and other sensitive routes",
+          "Encrypted Web Push notifications, and billing webhooks verified by signature and processed exactly once",
+          "490+ automated tests run on every change in GitHub Actions",
+        ],
+      },
+      {
+        heading: "Shipping it",
+        body: [
+          "Everything runs on one AWS EC2 server with Docker Compose: Caddy in front with automatic HTTPS, the API, the worker, PostgreSQL and Redis. The database is backed up every night and copied off-site.",
+        ],
+      },
+    ],
+  },
+];

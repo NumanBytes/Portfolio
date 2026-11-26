@@ -9,6 +9,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
+      data-umami-event="whatsapp:floating"
       className="group fixed right-4 bottom-4 z-40 flex h-14 items-center rounded-full bg-[#25D366] px-4 text-white shadow-lg shadow-black/25 transition hover:brightness-105 sm:right-6 sm:bottom-6"
     >
       <WhatsAppIcon className="size-6" />

@@ -1,5 +1,5 @@
-import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
-import { heroLines, site, stats } from "@/lib/data";
+import { ArrowDownRight, CalendarDays, MapPin } from "lucide-react";
+import { bookingLink, heroLines, site, stats } from "@/lib/data";
 import { LocalTime } from "./local-time";
 import { Typewriter } from "./typewriter";
 
@@ -43,17 +43,21 @@ export function Hero() {
         <div className="enter mt-10 flex flex-wrap items-center gap-3" style={{ "--i": 3 } as React.CSSProperties}>
           <a
             href="#contact"
+            data-umami-event="hero:start-project"
             className="group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 font-medium text-accent-fg transition hover:brightness-110"
           >
             Start a project
             <ArrowDownRight className="size-4 transition group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
           </a>
           <a
-            href="#work"
+            href={bookingLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-umami-event="hero:book-call"
             className="group inline-flex h-12 items-center gap-2 rounded-full border border-line-strong px-6 font-medium transition hover:border-fg/40 hover:bg-line"
           >
-            See my work
-            <ArrowUpRight className="size-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            <CalendarDays className="size-4" />
+            Book a free call
           </a>
         </div>
 

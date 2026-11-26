@@ -1,5 +1,5 @@
-import { Check, Gauge, Globe, LayoutDashboard, Rocket, Server, Sparkles } from "lucide-react";
-import { promises, services, workProcess } from "@/lib/data";
+import { ArrowUpRight, Check, Gauge, Globe, LayoutDashboard, Rocket, Server, Sparkles } from "lucide-react";
+import { bookingLink, promises, services, workProcess } from "@/lib/data";
 import { SectionHeading } from "./section-heading";
 import { Spotlight } from "./spotlight";
 
@@ -55,6 +55,17 @@ export function Services() {
               <span className="font-mono text-sm text-accent">0{i + 1}</span>
               <p className="mt-3 font-medium">{step.title}</p>
               <p className="mt-2 text-sm leading-relaxed text-muted">{step.body}</p>
+              {i === 0 && (
+                <a
+                  href={bookingLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-umami-event="services:book-call"
+                  className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
+                >
+                  Book it <ArrowUpRight className="size-3.5" />
+                </a>
+              )}
             </li>
           ))}
         </ol>

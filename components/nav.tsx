@@ -86,6 +86,7 @@ export function Nav() {
           <a
             href={site.resume}
             download="Numan_Razzaq_Resume.pdf"
+            data-umami-event="resume:download"
             className="ml-1 hidden h-9 items-center rounded-full bg-fg px-4 text-sm font-medium text-bg transition hover:opacity-85 sm:inline-flex"
           >
             Resume
@@ -114,6 +115,7 @@ export function Nav() {
                 <a
                   href={item.href}
                   download={item.href === site.resume ? "Numan_Razzaq_Resume.pdf" : undefined}
+                  data-umami-event={item.href === site.resume ? "resume:download" : undefined}
                   onClick={() => setOpen(false)}
                   className="block rounded-2xl px-4 py-3 text-lg text-muted transition hover:bg-line hover:text-fg"
                 >
