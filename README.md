@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# numan-razzaq.duckdns.org
 
-## Getting Started
+Personal portfolio of **Numan Razzaq**, Software Engineer (React, TypeScript, Next.js, NestJS).
 
-First, run the development server:
+- **Next.js 16** (App Router, static export) + **React 19** + **Tailwind CSS 4**
+- Dark/light theme, scroll-driven reveals in pure CSS, reduced-motion aware
+- SEO: metadata, Open Graph image generated at build, JSON-LD `Person`, sitemap, robots
+- Self-hosted on AWS EC2 behind Caddy (automatic HTTPS), next to Shortlist
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Editing content
+
+All content lives in [`lib/data.ts`](lib/data.ts): bio, stats, experience, projects
+and skills. The Resume button downloads `public/Numan_Razzaq_Resume.pdf`; replace that
+file to update it.
+
+## Optional setup
+
+In `lib/data.ts`, under `site`:
+
+- `booking`: your Calendly link (e.g. `https://calendly.com/<you>/intro-call`). Every
+  "Book a free call" button uses it; while empty they open WhatsApp instead.
+- `umamiWebsiteId`: the Website ID from cloud.umami.is to turn on cookie-free analytics.
+
+## Structure
+
+```
+app/                     routes: home page, /work/[slug] case studies, SEO files
+components/
+  sections/              one file per home-page section (hero, work, services, …)
+  layout/                nav, footer and the floating buttons
+  ui/                    small shared pieces: Section, buttons/links, lists, accordion, icons
+  effects/               visual effects: pointer background, card glow, typewriter
+lib/
+  data.ts                all site content
+  links.ts               WhatsApp and booking links
+  utils.ts               cn() class-name helper
+deploy/                  Docker Compose, Caddy config and deploy guide for EC2
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Develop
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run lint && npm run typecheck && npm run build   # static site in out/
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [`deploy/README.md`](deploy/README.md): one Docker container on the existing EC2
+server, served through Shortlist's Caddy on a free DuckDNS hostname.

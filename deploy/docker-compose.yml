@@ -1,0 +1,22 @@
+# The portfolio on the same EC2 server as Shortlist (deploy/README.md).
+#   docker compose --env-file .env up -d --build
+# No published ports: Shortlist's Caddy owns 80/443 and forwards the portfolio's hostname
+# to this container over the shared "web" network.
+name: portfolio
+
+services:
+  portfolio:
+    build:
+      context: ..
+      target: web
+      args:
+        NEXT_PUBLIC_SITE_URL: https://${PORTFOLIO_ADDRESS:?set PORTFOLIO_ADDRESS in .env}
+    image: portfolio-web
+    restart: unless-stopped
+    networks: [web]
+    # Static files only: a few MB of RAM, capped so it can never crowd out Shortlist.
+    mem_limit: 64m
+
+networks:
+  web:
+    external: true
